@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Print Layout Lab</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel ="shortcut icon" type="x-icon" href="{{ url_for('static', filename='images/Completeful Logo Black.svg') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head> 
+<body>
+    
+    <header class="container-fluid text-center">
+
+        <!-- NAV -->
+        <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong p-0 pt-1">
+           <div class="container-fluid">
+           <a>
+           <img src="{{ url_for('static', filename='images/home.svg') }}" width="30" height="30" class="d-inline-block align-center" alt="Template Logo">
+           Home</a>
+             <div>
+               <a class="m-0" href="https://ship7.shipstation.com/orders/awaiting-shipment" target="_blank">  
+               <img src="{{ url_for('static', filename='images/ShipStation_black_logo.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="ShipStation Link">  
+               </a>              
+               <a class="m-0" href="{{ url_for('precheck') }}">  
+               <img src="{{ url_for('static', filename='images/precheck.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Precheck Logo">  
+               </a>   
+               <a class="m-0" href="{{ url_for('designer') }}">
+               <img src="{{ url_for('static', filename='images/designer.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">
+               </a>
+               <a class="m-0" href="{{ url_for('templatemerger') }}">
+               <img src="{{ url_for('static', filename='images/template.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Template Logo">
+               </a>
+             </div>
+           </div>
+         </nav>
+   
+       <!-- BANNER -->
+   
+           <div class="row p-3 banner align-items-center">
+               <div class="col-sm col-md-4 col-lg-2 p-sm-4 p-md-2 logo">
+                   <img src="{{ url_for('static', filename='images/Completeful Logo White.svg') }}" alt="Completeful Logo">
+                   </div>
+                   <div class="col-sm col-md-8 col-lg-10 p-sm-4 p-md-1">
+                   <h1 class="display-5 fw-bold">PRINT LAYOUT LAB</h1>
+               </div>
+           </div>
+       </header>
+    
+    <div class="container text-center p-md-5">
+        <div class="p-4">
+            <h2>Welcome to the Home Page</h2>  
+        </div>
+        <nav> 
+          <div>
+
+            <div class="p-4">
+              <img src="{{ url_for('static', filename='images/designer.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Designer Logo">
+                <div>
+                <p>The Designer page processes a CSV file containing 
+                product information and generates personalized images for each product based on 
+                the user's input. The images are saved to the user's 'Downloads' folder.
+                <a href="{{ url_for('designer') }}">Go to Designer Page</a></p>
+                </div>
+            </div>
+            <div class="p-4">
+              <img src="{{ url_for('static', filename='images/template.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Template Logo">
+                <div>
+                <p>The Template Merger Page is for processing and combining multiple 
+                images loaded by the user. It also provides a preview for the final combined image 
+                and allows the user to download it.
+                <a href="{{ url_for('templatemerger') }}">Go to Template Merger Page</a></p>
+                </div>
+              </div>
+
+            </div>   
+        </nav> 
+    </div>
+
+</body>
+
+</html>  

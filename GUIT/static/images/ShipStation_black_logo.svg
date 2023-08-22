@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 402 405.96"
+   version="1.1"
+   sodipodi:docname="ShipStation_black_logo.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs75" />
+  <sodipodi:namedview
+     id="namedview73"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="1.9854173"
+     inkscape:cx="200.96531"
+     inkscape:cy="103.75653"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <path
+     id="Gear"
+     d="M 231.62281,405.91836 H 170.41842 L 162.3229,351.97263 A 151.91828,153.39906 0 0 1 124.00314,335.85969 L 80.515458,368.26598 37.220187,324.59035 69.313662,280.65101 A 150.75,152.21938 0 0 1 53.438731,241.93 L 0,233.81108 v -61.71769 l 53.424986,-8.16055 A 151.89079,153.3713 0 0 1 69.313662,125.23958 L 37.220187,81.286371 80.515458,37.582977 124.00314,69.989273 A 151.18982,152.66349 0 0 1 162.3229,53.945727 L 170.41842,0 h 61.20439 l 8.04055,53.945727 a 151.02489,152.49696 0 0 1 38.34724,16.043546 l 43.47394,-32.406296 43.30902,43.703394 -32.09348,43.911569 a 151.58841,153.06597 0 0 1 15.87493,38.69326 L 402,172.09339 v 61.81484 l -53.42499,8.11892 a 151.27229,152.74676 0 0 1 -15.87493,38.70713 l 32.09348,43.92546 -43.29527,43.71727 -43.48769,-32.40629 a 151.97326,153.45456 0 0 1 -38.34724,16.04355 l -8.04055,53.94572 z M 201,135.09332 A 67.210749,67.865863 0 1 0 268.197,202.9453 67.265727,67.921376 0 0 0 201,135.09332 Z"
+     style="stroke-width:1.38113" />
+</svg>

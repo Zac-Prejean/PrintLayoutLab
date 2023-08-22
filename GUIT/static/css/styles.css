@@ -1,0 +1,107 @@
+
+
+/*--BASIC--*/
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+header {  
+  background-image: url("../images/Banner-02.png");
+  background-color: #e65ea4;
+  border-bottom: 5px solid #b11766;
+
+}
+
+.navbar {
+  font-size: 25px;
+  color: #000;
+}
+
+.navbar a:link {
+  text-decoration: none;
+}
+
+.icon {  
+  transition: all 0.3s ease;  
+}  
+  
+.icon:hover {  
+  transform: scale(1.2);
+} 
+
+.banner {
+  color: #fff;
+}
+
+.logo {
+  margin: 0 auto;
+  max-width: 150px;
+}
+
+.wide-modal-dialog {  
+  max-width: 70%;  
+} 
+
+.separator {  
+  height: 4px !important; 
+  background-color: #e65ea4
+}  
+.separator td {  
+  padding: 0 !important;  
+} 
+
+.modal-body {  
+  overflow-x: auto;  
+}
+
+.table-bordered td {  
+  width: 100px; 
+  padding: 5px; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}  
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+#file-input {
+  display: block;
+  margin: 20px auto;
+}
+
+/* Additional Styles for Preview Area */
+#preview-area {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+}
+
+.preview-pdf {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width :480px) {
+  h1 {
+    font-size: 75px;
+   }
+
+  .logo {
+    max-width: 200px;
+   }
+}
+
+@media screen and (min-width :680px) {
+  h1 {
+    font-size: 100px;
+   }
+}
