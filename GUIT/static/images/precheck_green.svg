@@ -8,7 +8,7 @@
    fill="none"
    version="1.1"
    id="svg146"
-   sodipodi:docname="precheck.svg"
+   sodipodi:docname="precheck_green.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -27,7 +27,7 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="0.71241008"
-     inkscape:cx="108.78566"
+     inkscape:cx="-25.96819"
      inkscape:cy="412.68366"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
@@ -45,7 +45,7 @@
        stroke-linecap="round"
        stroke-linejoin="round"
        id="path142"
-       style="stroke-width:2.40298161;stroke-dasharray:none" />
+       style="stroke-width:2.40298161;stroke-dasharray:none;stroke:#00cc66;stroke-opacity:1" />
     <path
        d="m 12.000013,1.308205 c -5.0171004,0 -9.2640101,4.4949518 -10.6918075,10.691794 1.427775,6.196809 5.6747071,10.691791 10.6918075,10.691791 5.017035,0 9.263966,-4.494982 10.691785,-10.691791 C 21.263979,5.8032028 17.017048,1.308205 12.000013,1.308205 Z"
        stroke="#000000"
@@ -53,10 +53,10 @@
        stroke-linecap="round"
        stroke-linejoin="round"
        id="path144"
-       style="stroke-width:2.40298161;stroke-dasharray:none" />
+       style="stroke-width:2.40298161;stroke-dasharray:none;stroke:#00cc66;stroke-opacity:1" />
     <path
        d="m 9.3200992,12.315015 2.0865978,1.994865 4.173197,-3.989732"
-       style="stroke:#000000;stroke-width:2.40298161;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       style="stroke:#00cc66;stroke-width:2.40298161;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="path2338" />
   </g>
 </svg>

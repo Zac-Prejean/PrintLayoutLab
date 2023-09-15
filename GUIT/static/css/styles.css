@@ -3,7 +3,7 @@
 /*--BASIC--*/
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif, monospace;
   padding: 0;
   margin: 0;
 }
@@ -27,6 +27,9 @@ header {
 .icon {  
   transition: all 0.3s ease;  
 }  
+.icon2 {
+  margin: 5px !important;
+}
   
 .icon:hover {  
   transform: scale(1.2);
@@ -42,7 +45,7 @@ header {
 }
 
 .wide-modal-dialog {  
-  max-width: 70%;  
+  max-width: 85%;  
 } 
 
 .separator {  
@@ -75,13 +78,26 @@ header {
   margin: 20px auto;
 }
 
-/* Additional Styles for Preview Area */
+/* Additional Styles for Preview Areas */
+.terminal {
+  width: 75%; 
+  height: 200px; 
+  overflow-y: scroll; 
+  white-space: pre-wrap;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif, monospace;
+  color: #00cc65;
+  background-color: #f9f9f9;
+  box-shadow:  #ccc 0px 3px 8px;
+}
+
 #preview-area {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  box-shadow:  #ccc 0px 3px 8px;
 }
 
 .preview-pdf {

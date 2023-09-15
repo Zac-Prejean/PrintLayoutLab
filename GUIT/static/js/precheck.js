@@ -1,134 +1,277 @@
 
 
-let parsedCsvData;  
-let rowCount = 0;  
+import { prefixACSKTUM16ZPNK, prefixACSKTUM16ZBLK, prefixACSKTUM16ZICB, prefixACSKTUM16ZMNT, prefixACSKTUM18ZDBL, prefixACSKTUM18ZCLGD, prefixACSKTUM18ZCLRGD, 
+    prefixNCK, prefixRNG, oneLineTum, oneLineNck, oneLineRNG, threeLineNck, fourLineNck, validSkus } from './precheck_config.js';  
   
-function handleFileSelect(evt) {  
-    const file = evt.target.files[0];  
-    Papa.parse(file, {  
-        complete: function (results) {  
-            console.log("CSV Parsed:", results.data);  
-            parsedCsvData = results.data;  
-            $('#output').html(generateTableHtml(results.data));  
-            $('#preview-modal').modal('toggle');  
-        }  
-    });  
-}  
-  
-function getPersonalization(options) {  
-    const lines = options.split(/(?:\\n|\\r\\n|\\r)/g);  
-    console.log("Options lines:", lines);  
-    const personalizationKeywords = ['Personalization:', 'Personalization'];  
-    const personalizations = [];  
-  
-    for (const line of lines) {  
-        for (const keyword of personalizationKeywords) {  
-            if (line.includes(keyword)) {  
-                const startPos = line.indexOf(keyword) + keyword.length;  
-                const personalization = line.slice(startPos).replace(/(^"|"$)/g, '').trim();  
-                console.log("Found personalization:", personalization);  
-                const splitPersonalization = personalization.split(/(?:\n|\r\n|\r)/g);  
-  
-                if (splitPersonalization.length === 1) {  
-                    personalizations.push(splitPersonalization[0], "");  
-                } else {  
-                    personalizations.push(...splitPersonalization);  
-                }  
-  
-                console.log("Line 1:", personalizations[personalizations.length - 2]);  
-                console.log("Line 2:", personalizations[personalizations.length - 1]);  
+    let csvUploaded = false;  
+    let parsedCsvData;  
+    let rowCount = 0;
+    
+    function handleFileSelect(evt) {  
+        const file = evt.target.files[0];  
+        Papa.parse(file, {  
+            complete: function (results) {  
+                parsedCsvData = results.data;  
+                $('#output').html(generateTableHtml(results.data));  
+                $('#preview-modal').modal('toggle');  
+                csvUploaded = true;  
             }  
-        }  
-    }  
-    console.log("Final personalizations:", personalizations);  
-    return personalizations;  
-}  
+        });  
+    }
+    
+    function getPersonalization(options) {  
+        const lines = options.split(/,\s*/);  
+        const personalizationKeywords = ['Personalization:', 'Personalization', 'Custom Name:', 'Name 1:', 'Name 2:', 'Name 3:', 'Name 4:', 'Custom Name Top:', 'Custom Name Bottom:', 
+        'Left Inscription:', 'Middle Inscription:', 'Right Inscription:'];  
 
-function generateTableHtml(data) {  
-    const indicesToDisplay = [0, 1, 2, 3];  
-    rowCount = 0;  
-    let tableHtml = '<table class="table table-bordered">';  
-    for (let i = 0; i < data.length; i++) {  
-        const row = data[i];  
-        if (i === 0) {  
-            tableHtml += '<thead><tr>';  
-            for (let j = 0; j < row.length; j++) {  
-                if (indicesToDisplay.includes(j)) {  
-                    tableHtml += '<th>' + row[j] + '</th>';  
-                }  
-            }  
-            tableHtml += '</tr></thead><tbody>';  
-        } else {  
-            if (row.includes("Discount")) {  
-                tableHtml += '<tr class="separator"><td colspan="6"></td></tr>';  
-                continue;  
-            }  
-            rowCount++;  
-            tableHtml += '<tr>';  
-            for (let j = 0; j < row.length; j++) {  
-                if (indicesToDisplay.includes(j)) {  
-                    if (j === 3) {  
-                        const personalizations = getPersonalization(row[j]);  
-                        if (personalizations.length === 0) {  
-                            tableHtml += '<td><input type="text" class="personalization-input line1-input" value="" data-row-index="' + i + '"></td><td><input type="text" class="personalization-input line2-input" value="" data-row-index="' + i + '"></td>';  
-                        } else if (personalizations.length === 1) {  
-                            tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + personalizations[0] + '" data-row-index="' + i + '"></td><td><input type="text" class="personalization-input line2-input" value="" data-row-index="' + i + '"></td>';  
-                        } else {  
-                            tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + personalizations[0] + '" data-row-index="' + i + '"></td><td><input type="text" class="personalization-input line2-input" value="' + personalizations[1] + '" data-row-index="' + i + '"></td>';  
-                        }  
+        const personalizations = [];  
+        let personalizationLineCount = 0;  
+      
+        for (const line of lines) {  
+            for (const keyword of personalizationKeywords) {  
+                if (line.includes(keyword)) {  
+                    const startPos = line.indexOf(keyword) + keyword.length;  
+                    const personalization = line.slice(startPos).replace(/(^"|"$)/g, '').trim();  
+      
+                    if (keyword === 'Name 1:' || keyword === 'Name 2:' || keyword === 'Name 3:' || keyword === 'Name 4:' || keyword === 'Custom Name Top:' || keyword === 'Custom Name Bottom:' 
+                    || keyword === 'Left Inscription:' || keyword === 'Middle Inscription:' || keyword === 'Right Inscription:') {  
+
+                        personalizations.push(personalization);  
+                        personalizationLineCount++;  
                     } else {  
-                        tableHtml += '<td>' + row[j] + '</td>';  
+                        const splitPersonalization = personalization.split(/["']\s*["']|["']\s*["']\s*|\r\n|\n|\r/);  
+                        personalizationLineCount = splitPersonalization.length;  
+                        if (personalizationLineCount === 1) {  
+                            personalizations.push(splitPersonalization[0], "");  
+                        } else if (personalizationLineCount > 1) {  
+                            personalizations.push(...splitPersonalization);  
+                        }  
                     }  
                 }  
             }  
+        }  
+        return { personalizations, personalizationLineCount };  
+    }  
+     
+      
+    
+    function generateTableHtml(data) {  
+        const indicesToDisplay = [0, 1, 2, 3]; 
+        const maxPersonalizationLength = 150;
+        rowCount = 0;  
+        let tableHtml = '<table class="table table-bordered">';  
+      
+        for (let i = 0; i < data.length; i++) {  
+            const row = data[i];  
+            if (i === 0) {  
+                tableHtml += '<thead><tr>';  
+                for (let j = 0; j < row.length; j++) {  
+                    if (indicesToDisplay.includes(j)) {  
+                        tableHtml += '<th>' + row[j] + '</th>';  
+                    }  
+                }  
+                tableHtml += '</tr></thead><tbody>';  
+            } else {  
+                if (row[2] === "") {  
+                    tableHtml += '<tr class="separator"><td colspan="6"></td></tr>';  
+                    continue; 
+                } else if (row.includes("Discount")) {  
+                    tableHtml += '<tr class="separator"><td colspan="6"></td></tr>';  
+                    continue;     
+                }  
+                
+                rowCount++;  
+                tableHtml += '<tr>';  
+                for (let j = 0; j < row.length; j++) {  
+                    const sku = row[2];  
+                    const isOneLine = oneLineRNG.some(suffix => (prefixRNG + suffix) === sku) || oneLineNck.some(suffix => (prefixNCK + suffix) === sku) || oneLineTum.some(suffix => (prefixACSKTUM16ZPNK + suffix) === sku || (prefixACSKTUM16ZBLK + suffix) === sku || (prefixACSKTUM16ZICB + suffix) === sku || (prefixACSKTUM16ZMNT + suffix) === sku || (prefixACSKTUM18ZDBL + suffix) === sku || (prefixACSKTUM18ZCLGD + suffix) === sku || (prefixACSKTUM18ZCLRGD + suffix) === sku); 
+                    const isThreeLine = threeLineNck.some(suffix => (prefixNCK + suffix) === sku);  
+                    const isFourLine = fourLineNck.some(suffix => (prefixNCK + suffix) === sku);  
+                    
+                    if (indicesToDisplay.includes(j)) {  
+                        if (j === 2) {  
+                            const sku = row[j];  
+                            console.log("Current SKU:", sku);  
+                            console.log("Is SKU valid?", validSkus.includes(sku));  
+      
+                            const { personalizationLineCount } = getPersonalization(row[3]);  
+                            console.log("Personalization line count:", personalizationLineCount);  
+      
+                            let icon;  
+  
+                            if (!validSkus.includes(sku)) {  
+                                icon = unknownDesignUrl;  
+                            } else if ((personalizationLineCount === 0 || personalizationLineCount > 2) && !isThreeLine && !isFourLine) {  
+                                icon = errorCheckUrl;  
+                            } else if (personalizationLineCount === 1 && isOneLine) {  
+                                icon = goodCheckUrl;  
+                            } else if (personalizationLineCount === 2) {  
+                                icon = goodCheckUrl;  
+                            } else if (personalizationLineCount === 3 && isThreeLine) {  
+                                icon = goodCheckUrl;  
+                            } else if (personalizationLineCount === 4 && isFourLine) {  
+                                icon = goodCheckUrl;  
+                            } else {  
+                                icon = missingCheckUrl;  
+                            }  
+                             
+                            console.log("Chosen icon URL:", icon);  
+      
+                            tableHtml += '<td><div style="display: flex; align-items: center;"><img src="' + icon + '" class="icon2" width="25" height="25" alt="Check Logo"><span>' + sku + '</span></div></td>';  
+                        } else if (j === 3) {  
+                            const personalizations = getPersonalization(row[j]).personalizations;
+      
+                            if (isOneLine) {  
+                                if (personalizations.length === 0) {  
+                                    tableHtml += '<td><input type="text" class="personalization-input line1-input" value="" data-row-index="' + i + '"></td>';  
+                                } else {  
+                                    tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + personalizations[0] + '" data-row-index="' + i + '"></td>';  
+                                }  
+                                tableHtml += '<td style="display:none;"><input type="text" class="personalization-input line2-input" value="" data-row-index="' + i + '"></td>'; // adds a hidden line 2 input  
+                            } else if (isThreeLine) {  
+                                tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + (personalizations[0] || '') + '" data-row-index="' + i + '"></td>';  
+                                tableHtml += '<td colspan="3"><input type="text" class="personalization-input line2-input" value="' + (personalizations[1] || '') + '" data-row-index="' + i + '"></td>';  
+                                tableHtml += '</tr><tr>';  
+                                tableHtml += '<td colspan="3"></td><td><input type="text" class="personalization-input line3-input" value="' + (personalizations[2] || '') + '" data-row-index="' + i + '"></td>';  
+                                tableHtml += '<td style="display:none;"><input type="text" class="personalization-input line4-input" value="" data-row-index="' + i + '"></td>'; // adds a hidden line 4 input  
+                            } else if (isFourLine) {  
+                                tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + (personalizations[0] || '') + '" data-row-index="' + i + '"></td>';  
+                                tableHtml += '<td colspan="3"><input type="text" class="personalization-input line2-input" value="' + (personalizations[1] || '') + '" data-row-index="' + i + '"></td>';  
+                                tableHtml += '</tr><tr>';  
+                                tableHtml += '<td colspan="3"></td><td><input type="text" class="personalization-input line3-input" value="' + (personalizations[2] || '') + '" data-row-index="' + i + '"></td>';  
+                                tableHtml += '<td><input type="text" class="personalization-input line4-input" value="' + (personalizations[3] || '') + '" data-row-index="' + i + '"></td>';  
+                            } else {  
+                                if (personalizations.length === 1) {  
+                                    tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + personalizations[0] + '" data-row-index="' + i + '"></td><td><input type="text" class="personalization-input line2-input" value="" data-row-index="' + i + '" data-two-line="true"></td>';  
+                                } else {  
+                                    tableHtml += '<td><input type="text" class="personalization-input line1-input" value="' + personalizations[0] + '" data-row-index="' + i + '"></td><td><input type="text" class="personalization-input line2-input" value="' + personalizations[1] + '" data-row-index="' + i + '" data-two-line="true"></td>';  
+                                }  
+                                tableHtml += '<td style="display:none;"><input type="text" class="personalization-input line3-input" value="" data-row-index="' + i + '"></td>'; // adds a hidden line 3 input  
+                                tableHtml += '<td style="display:none;"><input type="text" class="personalization-input line4-input" value="" data-row-index="' + i + '"></td>'; // adds a hidden line 4 input  
+                            }  
+                             
+                        } else {  
+                            tableHtml += '<td>' + row[j] + '</td>';  
+                        }  
+                    }  
+                }  
+                tableHtml += '</tr>';  
+
+            // non-editable CSV line view
+            const itemOptionsText = row[3] !== undefined ? row[3] : '';  
+            let visibilityStyle = "";  
+              
+            if (itemOptionsText.length > maxPersonalizationLength) {  
+                visibilityStyle = "display: none;";  
+            }  
+              
+            tableHtml += '<td colspan="4" style="font-size: 12px; color: #999; padding-top: 0; text-align: left;' + visibilityStyle + '">' + itemOptionsText + '</td>';  
             tableHtml += '</tr>';  
         }  
     }  
     tableHtml += '</tbody></table>';  
     return tableHtml;  
-}  
- 
-$("#csv-file").on("change", handleFileSelect);  
-  
-let saveButtonClicked = false;  
-  
-$('#save-changes-btn').on('click', function () {  
-    saveButtonClicked = true;  
-    $('#preview-modal').modal('hide');  
-});  
-  
-$('#preview-modal').on('hidden.bs.modal', function () {  
-    if (saveButtonClicked) {  
-        const line1Inputs = document.getElementsByClassName('line1-input');  
-        const line2Inputs = document.getElementsByClassName('line2-input');  
-  
-        for (let i = 0; i < line1Inputs.length; i++) {  
-            const rowIndex = parseInt(line1Inputs[i].getAttribute('data-row-index'));  
-            const line1Value = line1Inputs[i].value;  
-            const line2Value = line2Inputs[i].value;  
-          
-            const row = parsedCsvData[rowIndex];  
-            const optionsIndex = 3;  
-          
-            const originalOptions = row[optionsIndex];
-            const updatedPersonalization = [line1Value, line2Value].filter(val => val).join('\n');
-            const newOptions = originalOptions.replace(/(Personalization:)([^,]*)(,|$)/, `$1${updatedPersonalization}$3`);  
-          
-            row[optionsIndex] = newOptions;  
+} 
+      
+    
+     
+    $("#csv-file").on("change", handleFileSelect);  
+      
+    $("#preview-button").on("click", function() {  
+        if (csvUploaded) {  
+            $('#preview-modal').modal('toggle');  
+        } else {  
+            alert("Please upload a CSV file first.");  
         }  
-        
-  
-        const updatedCsv = Papa.unparse(parsedCsvData); 
-  
-        const blob = new Blob([updatedCsv], { type: "text/csv;charset=utf-8;" });  
-        const downloadLink = document.createElement("a");  
-        const url = URL.createObjectURL(blob);  
-        downloadLink.href = url;  
-        downloadLink.setAttribute("download", "updated_csv.csv");  
-        document.body.appendChild(downloadLink);  
-        downloadLink.click();  
-        document.body.removeChild(downloadLink);  
-  
-        saveButtonClicked = false;  
-    }  
-});  
+    });   
+      
+    let saveButtonClicked = false;  
+      
+    $('#save-changes-btn').on('click', function () {  
+        saveButtonClicked = true;  
+        $('#preview-modal').modal('hide');  
+    });  
+      
+    $('#preview-modal').on('hidden.bs.modal', function () {  
+        if (saveButtonClicked) {  
+            const line1Inputs = document.getElementsByClassName('line1-input');  
+            const line2Inputs = document.getElementsByClassName('line2-input');  
+            const line3Inputs = document.getElementsByClassName('line3-input');  
+            const line4Inputs = document.getElementsByClassName('line4-input');  
+      
+            for (let i = 0; i < line1Inputs.length; i++) {  
+                const rowIndex = parseInt(line1Inputs[i].getAttribute('data-row-index'));  
+                const line1Value = line1Inputs[i].value;  
+                const line2Value = line2Inputs[i].value;  
+                const line3Value = (line3Inputs.length > i && line3Inputs[i]) ? line3Inputs[i].value : "";  
+                const line4Value = (line4Inputs.length > i && line4Inputs[i]) ? line4Inputs[i].value : "";  
+      
+                const row = parsedCsvData[rowIndex];  
+                const optionsIndex = 3;  
+      
+                const originalOptions = row[optionsIndex];  
+                let newOptions;  
+      
+                if (originalOptions.includes('Name 1:')) {  
+                    newOptions = originalOptions.replace(/(Name 1:)([^,]*)(,|$)/, `$1${line1Value}$3`);  
+                    newOptions = newOptions.replace(/(Name 2:)([^,]*)(,|$)/, `$1${line2Value}$3`);  
+                    if (line3Value !== '') {      
+                        newOptions = newOptions.replace(/(Name 3:)([^,]*)(,|$)/, `$1${line3Value}$3`);      
+                    }      
+                    if (line4Value !== '') {      
+                        newOptions = newOptions.replace(/(Name 4:)([^,]*)(,|$)/, `$1${line4Value}$3`);      
+                    }    
+                } else if (originalOptions.includes('Custom Name:')) {  
+                    newOptions = originalOptions.replace(/(Custom Name:)([^,]*)(,|$)/, `$1${line1Value}$3`);  
+                } else {  
+                    const topMatch = originalOptions.match(/(Custom Name Top:)([^,]*)(,|$)/);  
+                    const bottomMatch = originalOptions.match(/(Custom Name Bottom:)([^,]*)(,|$)/);  
+                  
+                    if (topMatch && bottomMatch) {  
+                        newOptions = originalOptions.replace(/(Custom Name Top:)([^,]*)(,|$)/, `Personalization:${line1Value}\n${line2Value}$3`);  
+                        newOptions = newOptions.replace(/(Custom Name Bottom:)([^,]*)(,|$)/, '');  
+                        newOptions = newOptions.replace(/,\s*font:\s*Shelby Bold/, ''); // remove ', font: Shelby Bold'  
+                    } else {  
+                        const leftInscriptionMatch = originalOptions.match(/(Left Inscription:)([^,]*)(,|$)/);  
+                        const middleInscriptionMatch = originalOptions.match(/(Middle Inscription:)([^,]*)(,|$)/);  
+                        const rightInscriptionMatch = originalOptions.match(/(Right Inscription:)([^,]*)(,|$)/);  
+      
+                        if (leftInscriptionMatch && middleInscriptionMatch && rightInscriptionMatch) {  
+                            newOptions = originalOptions.replace(/(Left Inscription:)([^,]*)(,|$)/, `$1${line1Value}$3`);  
+                            newOptions = newOptions.replace(/(Middle Inscription:)([^,]*)(,|$)/, `$1${line2Value}$3`);  
+                            newOptions = newOptions.replace(/(Right Inscription:)([^,]*)(,|$)/, `$1${line3Value}$3`);  
+                        } else {  
+                            const personalizationMatch = originalOptions.match(/(Personalization:)([^,]*)(,|$)/);  
+                            if (personalizationMatch) {  
+                                const updatedPersonalization = [line1Value, line2Value].filter(val => val).join('\n');
+                                newOptions = originalOptions.replace(/(Personalization:)([^,]*)(,|$)/, `$1${updatedPersonalization}$3`);  
+                            } else {  
+                                newOptions = originalOptions;  
+                            }  
+                        }  
+                    }  
+                }  
+      
+                row[optionsIndex] = newOptions;  
+            }    
+      
+            const updatedCsv = Papa.unparse(parsedCsvData);  
+      
+            const blob = new Blob([updatedCsv], { type: "text/csv;charset=utf-8;" });  
+            const downloadLink = document.createElement("a");  
+            const url = URL.createObjectURL(blob);  
+            downloadLink.href = url;  
+            downloadLink.setAttribute("download", "updated_csv.csv");  
+            document.body.appendChild(downloadLink);  
+            downloadLink.click();  
+            document.body.removeChild(downloadLink);  
+      
+            saveButtonClicked = false;  
+        }  
+    });  
+      
+    
+    
+    $(document).ready(function(){ 
+        $('[data-toggle="tooltip"]').tooltip();   
+      });
