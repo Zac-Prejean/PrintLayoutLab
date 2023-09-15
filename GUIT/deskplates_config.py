@@ -1,35 +1,39 @@
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))  
-background_image_path = os.path.join(script_dir, 'backgrown', 'namepaltes', 'UVPPSSCCPTUVP.png')  
+background_image_path = os.path.join(script_dir, 'background', 'namepaltes', 'UVPPSSCCPTUVP.png')  
 
 sku_to_image = {
     
-    'DSWCLR001UVPCCACRP3UVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', '_blank.png'),
-    'DSWCLR001UVPPSTNPWUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSTNPWUVP.png'),
-    'DSWCLR001UVPPSJOSHDNPUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSJOSHDNPUVP.png'),
-    'DSWCLR001UVPUYACPFUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPUYACPFUVP.png'),
-    'DSWCLR001UVPUYACSFUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPUYACSFUVP.png'),
-    'DSWCLR001UVPUYTEAPLUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPUYTEAPLUVP.png'),
-    'DSWCLR001UVPUYACSTUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', '_blank.png'),
+    'DSWCLR001UVPCCACRP3UVP': os.path.join(script_dir, 'background', 'Nameplates', '_blank.png'),
+    'DSWCLR001UVPPSTNPWUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSTNPWUVP.png'),
+    'DSWCLR001UVPPSJOSHDNPUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSJOSHDNPUVP.png'),
+    'DSWCLR001UVPUYACPFUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPUYACPFUVP.png'),
+    'DSWCLR001UVPUYACSFUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPUYACSFUVP.png'),
+    'DSWCLR001UVPUYTEAPLUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPUYTEAPLUVP.png'),
+    'DSWCLR001UVPUYACSTUVP': os.path.join(script_dir, 'background', 'Nameplates', '_blank.png'),
     
     # underlined
-    'DSWCLR001UVPCCACRPSCUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPCCACRPSCUVP.png'),
-    'DSWCLR001UVPJMZZCLASSDNUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPJMZZCLASSDNUVP.png'),
-    'DSWCLR001UVPPSCFDNPUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSCFDNPUVP.png'),
-    'DSWCLR001UVPJMZZFLOWDNPUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPJMZZFLOWDNPUVP.png'),
-    'DSWCLR001UVPPSFLOWDNPUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSFLOWDNPUVP.png'),
-    'DSWCLR001UVPJMZZDNP2UVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPJMZZDNP2UVP.png'),
-    'DSWCLR001UVPPSZZDNPBUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSZZDNPBUVP.png'),
-    'DSWCLR001UVPPSLAWDNPUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSLAWDNPUVP.png'),
-    'DSWCLR001UVPPSTDSJHUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSTDSJHUVP.png'),
-    'DSWCLR001UVPPSTDSASUVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSTDSASUVP.png'),
+    'DSWCLR001UVPCCACRPWHUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPCCACRPWHUVP.png'),
+    'DSWCLR001UVPCCACRP2UVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPCCACRP2UVP.png'),
+    'DSWCLR001UVPCCACRPGLCUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPCCACRPGLCUVP.png'),
+    'DSWCLR001UVPCCACRPSCUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPCCACRPSCUVP.png'),
+
+    'DSWCLR001UVPJMZZCLASSDNUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPJMZZCLASSDNUVP.png'),
+    'DSWCLR001UVPPSCFDNPUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSCFDNPUVP.png'),
+    'DSWCLR001UVPJMZZFLOWDNPUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPJMZZFLOWDNPUVP.png'),
+    'DSWCLR001UVPPSFLOWDNPUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSFLOWDNPUVP.png'),
+    'DSWCLR001UVPJMZZDNP2UVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPJMZZDNP2UVP.png'),
+    'DSWCLR001UVPPSZZDNPBUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSZZDNPBUVP.png'),
+    'DSWCLR001UVPPSLAWDNPUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSLAWDNPUVP.png'),
+    'DSWCLR001UVPPSTDSJHUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSTDSJHUVP.png'),
+    'DSWCLR001UVPPSTDSASUVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSTDSASUVP.png'),
 
     # zach series
-    'DSWCLR001UVPPSZACH2UVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSZACH2UVP.png'),
-    'DSWCLR001UVPPSZACH68UVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSZACH68UVP.png'),
-    'DSWCLR001UVPPSZACH6969UVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', 'UVPPSZACH6969UVP.png'),
-    'DSWCLR001UVPPSZACH69UVP': os.path.join(script_dir, 'Backgrown', 'Nameplates', '_blank.png'),
+    'DSWCLR001UVPPSZACH2UVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSZACH2UVP.png'),
+    'DSWCLR001UVPPSZACH68UVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSZACH68UVP.png'),
+    'DSWCLR001UVPPSZACH6969UVP': os.path.join(script_dir, 'background', 'Nameplates', 'UVPPSZACH6969UVP.png'),
+    'DSWCLR001UVPPSZACH69UVP': os.path.join(script_dir, 'background', 'Nameplates', '_blank.png'),
 } 
 
 sku_to_font = {
@@ -45,7 +49,11 @@ sku_to_font = {
 
     
     # underlined
+    'DSWCLR001UVPCCACRPWHUVP': os.path.join(script_dir, 'Fonts', 'Arapey-Regular.ttf'),
+    'DSWCLR001UVPCCACRP2UVP': os.path.join(script_dir, 'Fonts', 'Arapey-Regular.ttf'),
+    'DSWCLR001UVPCCACRPGLCUVP': os.path.join(script_dir, 'Fonts', 'Arapey-Regular.ttf'),
     'DSWCLR001UVPCCACRPSCUVP': os.path.join(script_dir, 'Fonts', 'Arapey-Regular.ttf'),
+
     'DSWCLR001UVPJMZZCLASSDNUVP': os.path.join(script_dir, 'Fonts', 'Joshico-Regular.otf'),
     'DSWCLR001UVPPSCFDNPUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'DSWCLR001UVPJMZZFLOWDNPUVP': os.path.join(script_dir, 'Fonts', 'AboutLove.ttf'),
@@ -78,7 +86,11 @@ sku_to_second_line_font = {
 
     
     # underlined
+    'DSWCLR001UVPCCACRPWHUVP': os.path.join(script_dir, 'Fonts', 'Radnika-Medium.otf'),
+    'DSWCLR001UVPCCACRP2UVP': os.path.join(script_dir, 'Fonts', 'Radnika-Medium.otf'),
+    'DSWCLR001UVPCCACRPGLCUVP': os.path.join(script_dir, 'Fonts', 'Radnika-Medium.otf'),
     'DSWCLR001UVPCCACRPSCUVP': os.path.join(script_dir, 'Fonts', 'Radnika-Medium.otf'),
+
     'DSWCLR001UVPJMZZCLASSDNUVP': os.path.join(script_dir, 'Fonts', 'BebasNeue-Regular.ttf'),
     'DSWCLR001UVPPSCFDNPUVP': os.path.join(script_dir, 'Fonts', 'Louis George Cafe.ttf'),
     'DSWCLR001UVPJMZZFLOWDNPUVP': os.path.join(script_dir, 'Fonts', 'BebasNeue-Regular.ttf'),
@@ -123,20 +135,20 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
        26: (200, -30), 27: (200, -30), 28: (200, -30), 29: (200, -30), 30: (200, -30),
     },
     'DSWCLR001UVPUYACPFUVP': {     
-        1: (250, 40),  2: (250, 40),  3: (250, 40),  4: (250, 40),  5: (250, 40),  
-        6: (250, 40),  7: (250, 40),  8: (250, 40),  9: (250, 40), 10: (250, 40),  
-       11: (250, 40), 12: (220, 50), 13: (220, 50), 14: (220, 50), 15: (210, 50), 
-       16: (210, 60), 17: (200, 60), 18: (180, 70), 19: (180, 70), 20: (180, 70),
-       21: (180, 70), 22: (160, 80), 23: (160, 80), 24: (160, 80), 25: (160, 80), 
-       26: (160, 80), 27: (160, 80), 28: (160, 80), 29: (160, 80), 30: (160, 80),
+        1: (250, 90),  2: (250, 90),  3: (250, 90),  4: (250, 90),  5: (250, 90),  
+        6: (250, 90),  7: (250, 90),  8: (250, 90),  9: (250, 90), 10: (250, 90),  
+       11: (250, 90), 12: (220, 100), 13: (220, 100), 14: (220, 100), 15: (210, 100), 
+       16: (210, 110), 17: (200, 110), 18: (180, 120), 19: (180, 120), 20: (180, 120),
+       21: (180, 120), 22: (160, 130), 23: (160, 130), 24: (160, 130), 25: (160, 130), 
+       26: (160, 130), 27: (160, 130), 28: (160, 130), 29: (160, 130), 30: (160, 130),
     },
     'DSWCLR001UVPUYACSFUVP': {     
-        1: (250, 40),  2: (250, 40),  3: (250, 40),  4: (250, 40),  5: (250, 40),  
-        6: (250, 40),  7: (250, 40),  8: (250, 40),  9: (250, 40), 10: (250, 40),  
-       11: (250, 40), 12: (220, 50), 13: (220, 50), 14: (220, 50), 15: (210, 50), 
-       16: (210, 60), 17: (200, 60), 18: (180, 70), 19: (180, 70), 20: (180, 70),
-       21: (180, 70), 22: (160, 80), 23: (160, 80), 24: (160, 80), 25: (160, 80), 
-       26: (160, 80), 27: (160, 80), 28: (160, 80), 29: (160, 80), 30: (160, 80),
+        1: (250, 90),  2: (250, 90),  3: (250, 90),  4: (250, 90),  5: (250, 90),  
+        6: (250, 90),  7: (250, 90),  8: (250, 90),  9: (250, 90), 10: (250, 90),  
+       11: (250, 90), 12: (220, 100), 13: (220, 100), 14: (220, 100), 15: (210, 100), 
+       16: (210, 110), 17: (200, 110), 18: (180, 120), 19: (180, 120), 20: (180, 120),
+       21: (180, 120), 22: (160, 130), 23: (160, 130), 24: (160, 130), 25: (160, 130), 
+       26: (160, 130), 27: (160, 130), 28: (160, 130), 29: (160, 130), 30: (160, 130),
     },
     'DSWCLR001UVPUYTEAPLUVP': {     
         1: (400, 20),  2: (400, 20),  3: (400, 20),  4: (400, 20),  5: (400, 20),  
@@ -157,12 +169,31 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
 
 
 #      underlined
+    'DSWCLR001UVPCCACRPWHUVP': {     
+        1: (250, 750, 50),  2: (250, 710, 50),  3: (250, 670, 50),   4: (250, 630, 50),   5: (250, 590, 50),
+        6: (250, 550, 50),  7: (250, 530, 50),  8: (250, 510, 50),   9: (250, 490, 50),  10: (250, 370, 50),  
+       11: (250, 250, 50), 12: (220, 280, 80), 13: (220, 240, 80),  14: (220, 200, 80),  15: (210, 180, 80), 
+       16: (210, 120, 80), 17: (180, 150, 90), 18: (180, 170, 100), 19: (180, 100, 100), 20: (180, 100, 100),
+    },
+    'DSWCLR001UVPCCACRP2UVP': {     
+        1: (250, 750, 50),  2: (250, 710, 50),  3: (250, 670, 50),   4: (250, 630, 50),   5: (250, 590, 50),  
+        6: (250, 550, 50),  7: (250, 530, 50),  8: (250, 510, 50),   9: (250, 490, 50),  10: (250, 370, 50),  
+       11: (250, 250, 50), 12: (220, 280, 80), 13: (220, 240, 80),  14: (220, 200, 80),  15: (210, 180, 80), 
+       16: (210, 120, 80), 17: (180, 150, 90), 18: (180, 170, 100), 19: (180, 100, 100), 20: (180, 100, 100),
+    },
+    'DSWCLR001UVPCCACRPGLCUVP': {     
+        1: (250, 750, 50),  2: (250, 710, 50),  3: (250, 670, 50),   4: (250, 630, 50),   5: (250, 590, 50),  
+        6: (250, 550, 50),  7: (250, 530, 50),  8: (250, 510, 50),   9: (250, 490, 50),  10: (250, 370, 50),  
+       11: (250, 250, 50), 12: (220, 280, 80), 13: (220, 240, 80),  14: (220, 200, 80),  15: (210, 180, 80), 
+       16: (210, 120, 80), 17: (180, 150, 90), 18: (180, 170, 100), 19: (180, 100, 100), 20: (180, 100, 100),
+    },
     'DSWCLR001UVPCCACRPSCUVP': {     
         1: (250, 750, 50),  2: (250, 710, 50),  3: (250, 670, 50),   4: (250, 630, 50),   5: (250, 590, 50),  
         6: (250, 550, 50),  7: (250, 530, 50),  8: (250, 510, 50),   9: (250, 490, 50),  10: (250, 370, 50),  
        11: (250, 250, 50), 12: (220, 280, 80), 13: (220, 240, 80),  14: (220, 200, 80),  15: (210, 180, 80), 
        16: (210, 120, 80), 17: (180, 150, 90), 18: (180, 170, 100), 19: (180, 100, 100), 20: (180, 100, 100),
     },
+
     'DSWCLR001UVPJMZZCLASSDNUVP': {     
         1: (200, 40),  2: (200, 40),  3: (200, 40),  4: (200, 40),  5: (200, 40),  
         6: (200, 40),  7: (200, 40),  8: (200, 40),  9: (200, 40), 10: (200, 40),  
@@ -206,9 +237,9 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
     'DSWCLR001UVPPSZZDNPBUVP': {     
         1: (250, -10),  2: (250, -10), 3: (250, -10), 4: (250, -10),  5: (250, -10),  
         6: (250, -10),  7: (250, -10), 8: (250, -10), 9: (250, -10), 10: (250, -10),  
-       11: (250, -10), 12: (220, 20), 13: (220, 20), 14: (220, 20),  15: (210, 20), 
-       16: (210, 20),  17: (190, 30), 18: (180, 40), 19: (180, 40),  20: (180, 40),
-       21: (180, 40),  22: (180, 40), 23: (180, 40), 24: (180, 40),  25: (180, 40), 
+       11: (250, -10), 12: (220, 20), 13: (220, 20), 14: (210, 20),  15: (190, 30), 
+       16: (180, 40),  17: (180, 40), 18: (180, 40), 19: (180, 40),  20: (180, 40),
+       21: (180, 40),  22: (180, 40), 23: (170, 50), 24: (170, 50),  25: (170, 50), 
        26: (160, 10),  27: (160, 10), 28: (160, 10), 29: (160, 10),  30: (160, 10),
     },
     'DSWCLR001UVPPSLAWDNPUVP': {     
@@ -220,10 +251,10 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
        26: (150, 100),  27: (150, 100), 28: (150, 100), 29: (150, 100),  30: (150, 100),
     },
     'DSWCLR001UVPPSTDSJHUVP': {     
-         1: (280, -50),  2: (280, -50),  3: (280, -50),  4: (280, -50),  5: (280, -50),  
-         6: (280, -50),  7: (280, -50),  8: (280, -50),  9: (280, -50), 10: (280, -50),  
-        11: (280, -50), 12: (250, -20), 13: (250, -20), 14: (250, -20), 15: (230, -10), 
-        16: (200, 0),   17: (200, 0),   18: (200, 0),   19: (180, 30),  20: (180, 30),
+         1: (260, -40),  2: (260, -40),  3: (260, -40),  4: (260, -40),  5: (260, -40),  
+         6: (260, -40),  7: (260, -40),  8: (260, -40),  9: (260, -40), 10: (260, -40),  
+        11: (260, -40), 12: (230, -10), 13: (230, -10), 14: (230, -10), 15: (220, 0), 
+        16: (190, 10),  17: (190, 10),  18: (190, 10),  19: (170, 40),  20: (170, 40),
     },
     'DSWCLR001UVPPSTDSASUVP': {     
          1: (350, -50),  2: (350, -50),  3: (350, -50),  4: (350, -50),  5: (350, -50),  
@@ -253,12 +284,12 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
        21: (150, 120), 22: (150, 120), 23: (150, 120), 24: (150, 120), 25: (150, 120),
     },
     'DSWCLR001UVPPSZACH69UVP':  {     
-        1: (230, 60),  2: (230, 60),  3: (230, 60),  4: (230, 60),  5: (230, 60),  
-        6: (230, 60),  7: (230, 60),  8: (230, 60),  9: (230, 60), 10: (230, 60),  
-       11: (230, 60), 12: (230, 60), 13: (230, 60), 14: (230, 60), 15: (230, 60), 
-       16: (230, 60), 17: (230, 60), 18: (230, 60), 19: (230, 60), 20: (230, 60),
-       21: (210, 60), 22: (210, 60), 23: (210, 60), 24: (210, 60), 25: (210, 60),
-       21: (200, 60), 22: (200, 60), 23: (200, 60), 24: (200, 60), 25: (200, 60),
+        1: (220, 60),  2: (220, 60),  3: (220, 60),  4: (220, 60),  5: (220, 60),  
+        6: (210, 60),  7: (210, 60),  8: (210, 60),  9: (210, 60), 10: (210, 60),  
+       11: (200, 55), 12: (200, 55), 13: (200, 55), 14: (200, 55), 15: (200, 55), 
+       16: (200, 55), 17: (200, 55), 18: (200, 55), 19: (200, 55), 20: (200, 55),
+       21: (200, 55), 22: (200, 55), 23: (200, 55), 24: (200, 55), 25: (200, 55),
+       21: (190, 60), 22: (190, 60), 23: (190, 60), 24: (190, 60), 25: (190, 60),
     },
 }  
 
@@ -329,12 +360,32 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
 
 
      # underlined
+
+    'DSWCLR001UVPCCACRPWHUVP': {     
+        1: (100, 780, 300),  2: (100, 765, 300),  3: (100, 750, 300),  4: (100, 735, 300),  5: (100, 720, 300),  
+        6: (100, 705, 300),  7: (100, 690, 300),  8: (100, 675, 300),  9: (100, 660, 300), 10: (100, 640, 300),  
+       11: (100, 610, 300), 12: (100, 580, 300), 13: (100, 550, 300), 14: (100, 520, 300), 15: (100, 490, 300), 
+       16: (100, 460, 300), 17: (100, 430, 300), 18: (100, 400, 300), 19: (100, 370, 300), 20: (100, 340, 300),
+    },
+    'DSWCLR001UVPCCACRP2UVP': {     
+        1: (100, 780, 300),  2: (100, 765, 300),  3: (100, 750, 300),  4: (100, 735, 300),  5: (100, 720, 300),  
+        6: (100, 705, 300),  7: (100, 690, 300),  8: (100, 675, 300),  9: (100, 660, 300), 10: (100, 640, 300),  
+       11: (100, 610, 300), 12: (100, 580, 300), 13: (100, 550, 300), 14: (100, 520, 300), 15: (100, 490, 300), 
+       16: (100, 460, 300), 17: (100, 430, 300), 18: (100, 400, 300), 19: (100, 370, 300), 20: (100, 340, 300),
+    },
+    'DSWCLR001UVPCCACRPGLCUVP': {     
+        1: (100, 780, 300),  2: (100, 765, 300),  3: (100, 750, 300),  4: (100, 735, 300),  5: (100, 720, 300),  
+        6: (100, 705, 300),  7: (100, 690, 300),  8: (100, 675, 300),  9: (100, 660, 300), 10: (100, 640, 300),  
+       11: (100, 610, 300), 12: (100, 580, 300), 13: (100, 550, 300), 14: (100, 520, 300), 15: (100, 490, 300), 
+       16: (100, 460, 300), 17: (100, 430, 300), 18: (100, 400, 300), 19: (100, 370, 300), 20: (100, 340, 300),
+    },
     'DSWCLR001UVPCCACRPSCUVP': {     
         1: (100, 780, 300),  2: (100, 765, 300),  3: (100, 750, 300),  4: (100, 735, 300),  5: (100, 720, 300),  
         6: (100, 705, 300),  7: (100, 690, 300),  8: (100, 675, 300),  9: (100, 660, 300), 10: (100, 640, 300),  
        11: (100, 610, 300), 12: (100, 580, 300), 13: (100, 550, 300), 14: (100, 520, 300), 15: (100, 490, 300), 
        16: (100, 460, 300), 17: (100, 430, 300), 18: (100, 400, 300), 19: (100, 370, 300), 20: (100, 340, 300),
     },
+
     'DSWCLR001UVPJMZZCLASSDNUVP': {     
         1: (100, 370),  2: (100, 370),  3: (100, 370),  4: (100, 370),  5: (100, 370),  
         6: (100, 370),  7: (100, 370),  8: (100, 370),  9: (100, 370), 10: (100, 370),  
@@ -458,12 +509,12 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
     'DSWCLR001UVPPSZACH69UVP':  {
         1: (75, 1650, 350),  2: (75, 1650, 350),  3: (75, 1650, 350),  4: (75, 1650, 350),  5: (75, 1650, 350),  
         6: (75, 1650, 350),  7: (75, 1650, 350),  8: (75, 1650, 350),  9: (75, 1610, 350), 10: (75, 1570, 350),  
-       11: (75, 1370, 350), 12: (75, 1370, 350), 13: (75, 1370, 350), 14: (75, 1370, 350), 15: (75, 1370, 350), 
-       16: (75, 1370, 350), 17: (75, 1370, 350), 18: (75, 1290, 350), 19: (75, 1250, 350), 20: (75, 1210, 350),
-       21: (75, 1000, 350), 22: (75, 1000, 350), 23: (75, 1000, 350), 24: (75, 1000, 350), 25: (75, 1000, 350),  
-       26: (75, 800, 350),  27: (75, 800, 350),  28: (75, 800, 350),  29: (75, 800, 350),  30: (75, 800, 350),
-       31: (75, 600, 350),  32: (75, 600, 350),  33: (75, 600, 350),  34: (75, 600, 350),  35: (75, 600, 350),  
-       36: (75, 400, 350),  37: (75, 400, 350),  38: (75, 400, 350),  39: (75, 400, 350),  40: (75, 400, 350), 
+       11: (75, 1470, 350), 12: (75, 1420, 350), 13: (75, 1420, 350), 14: (75, 1370, 350), 15: (75, 1370, 350), 
+       16: (75, 1370, 350), 17: (75, 1250, 350), 18: (75, 1250, 350), 19: (75, 1250, 350), 20: (75, 1250, 350),
+       21: (75, 1200, 350), 22: (75, 1100, 350), 23: (75, 1100, 350), 24: (75, 1000, 350), 25: (75, 1000, 350),  
+       26: (75, 1000, 350),  27: (75, 1000, 350),  28: (75, 1000, 350),  29: (75, 950, 350),  30: (75, 900, 350),
+       31: (75, 900, 350),  32: (75, 900, 350),  33: (75, 900, 350),  34: (75, 800, 350),  35: (75, 800, 350),  
+       36: (75, 800, 350),  37: (75, 800, 350),  38: (75, 700, 350),  39: (75, 700, 350),  40: (75, 700, 350), 
      },
 }  
 

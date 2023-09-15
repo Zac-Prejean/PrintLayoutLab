@@ -2,112 +2,132 @@ import os
 import re
 
 script_dir = os.path.dirname(os.path.abspath(__file__))  
-background_image_path = os.path.join(script_dir, 'backgrown', 'tumblers', 'UVPPSSCCPTUVP.png')  
+background_image_path = os.path.join(script_dir, 'background', 'tumblers', 'UVPPSSCCPTUVP.png')  
 
 sku_to_image = {
 
-    # tumblers
-    'UVPPSSCCPTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSSCCPTUVP.png'),
-    'UVPJMHDBSUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPJMHDBSUVP.png'),
-    'UVPPSPICBFUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSPICBFUVP.png'),
-    'UVPPSAIRATTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSAIRATTBUVP.png'),
-    'UVPRADENTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPRADENTUVP.png'),
-    'UVPPSGKNTPUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSGKNTSUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
+    # SCRIPT
+    'UVPUYPTBFUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSACRYLMIUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSSCCPTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSSCCPTUVP.png'),
+    'UVPPSPICBFUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSPICBFUVP.png'),
+    'UVPUYSDD2UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSDD2UVP.png'),
+    'UVPRADENTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPRADENTUVP.png'),
+    'UVPPSGKNTPUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSGKNTSUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPANWTTUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
 
-    'UVPANWHTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPANWHTUVP.png'),
-    'UVPPSTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSKFGPUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSKFGPUVP.png'),
-    'UVPPSKFGWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSKFGWUVP.png'),
+    # PIC
+    'UVPANWHTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPANWHTUVP.png'),
+    'UVPPSTBUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSKFGPUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSKFGPUVP.png'),
+    'UVPPSKFGWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSKFGWUVP.png'),
 
-    'UVPPSDENTTELUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSDENTTELUVP.png'),
-    'UVPPSDENTBLKUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSDENTTELUVP.png'),
-    'UVPPSDENTPNKUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSDENTTELUVP.png'),
+    # DENTAL
+    'UVPPSDENTTELUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSDENTTELUVP.png'),
+    'UVPPSDENTBLKUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSDENTTELUVP.png'),
+    'UVPPSDENTPNKUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSDENTTELUVP.png'),
 
-    'UVPPSKIDTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),  
-    'UVPPSKIDTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSKIDTPUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
+    # TEACHERS   
+    'UVPUYSTD1UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD1UVP.png'),  
+    'UVPUYSTD2UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD2UVP.png'),  
+    'UVPUYSTD3UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD3UVP.png'),  
+    'UVPUYSTD4UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD4UVP.png'),
+    'UVPUYSTD5UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD5UVP.png'),  
+    'UVPUYSTD6UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD6UVP.png'),  
+    'UVPUYSTD7UVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPUYSTD7UVP.png'),
+
+    'UVPPSAPPTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSAPPTUVP.png'),
+    'UVPPSABCTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSABCTUVP.png'),
+    'UVPPSPENTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSPENTUVP.png'),
+    'UVPPSBUSTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSBUSTUVP.png'),
     
-    'UVPUYSTD1UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD1UVP.png'),  
-    'UVPUYSTD2UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD2UVP.png'),  
-    'UVPUYSTD3UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD3UVP.png'),  
-    'UVPUYSTD4UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD4UVP.png'),
-    'UVPUYSTD5UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD5UVP.png'),  
-    'UVPUYSTD6UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD6UVP.png'),  
-    'UVPUYSTD7UVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPUYSTD7UVP.png'),
+    # KIDS TUM
+    'UVPJMKTDSUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMKTDSUVP.png'),
+    'UVPJMKTMTUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMKTMTUVP.png'),
+    'UVPJMKTPCUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMKTPCUVP.png'),
+    'UVPJMKTUCUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMKTUCUVP.png'),
 
-    'UVPPSAPPTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSAPPTUVP.png'),
-    'UVPPSABCTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSABCTUVP.png'),
-    'UVPPSPENTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSPENTUVP.png'),
-    'UVPPSBUSTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSBUSTUVP.png'),
+    'UVPPSKIDTBUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),  
+    'UVPPSKIDTWUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSKIDTPUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
 
-    'UVPJMKTDSUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPJMKTDSUVP.png'),
-    'UVPJMKTMTUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPJMKTMTUVP.png'),
-    'UVPJMKTPCUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPJMKTPCUVP.png'),
-    'UVPJMKTUCUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPJMKTUCUVP.png'),
+    # BLACK / WHITE
+    'UVPPSB16BUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSB16WUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSTTUMBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTUMWUVP.png'),
+    'UVPPSTTUMWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTUMWUVP.png'),
+    'UVPPSPHRMBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSPHRMBUVP.png'),
+    'UVPPSPHRMWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSPHRMWUVP.png'),
+    'UVPPSSTILGBHUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSSTILGWHUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPJMSLCLBUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPJMSLCLWUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSNUBRBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSNUBRBUVP.png'),
+    'UVPPSNUBRWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSNUBRWUVP.png'),
+    'UVPJMHDBSUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMHDBSUVP.png'),
+    'UVPJMHDWSUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMHDWSUVP.png'),
+    'UVPJMHDBPUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMHDBSUVP.png'),
+    'UVPJMHDWPUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPJMHDWSUVP.png'),
 
-    'UVPPSB16BUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSB16WUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSTTUMBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTUMWUVP.png'),
-    'UVPPSTTUMWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTUMWUVP.png'),
-    'UVPPSPHRMBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSPHRMBUVP.png'),
-    'UVPPSPHRMWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSPHRMWUVP.png'),
-    'UVPPSSTILGBHUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSSTILGWHUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPJMSLCLBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPJMSLCLWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSNUBRBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSNUBRBUVP.png'),
-    'UVPPSNUBRWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSNUBRWUVP.png'),
+    # HORAZONAL
+    'UVPPSEITTTSBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSEITTTSBUVP.png'),
+    'UVPPSEITTTSWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSEITTTSWUVP.png'),
+    'UVPPSTTPTBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTPTBUVP.png'),
+    'UVPPSTTPTWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTPTWUVP.png'),
+    'UVPPSTTPTABUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTPTABUVP.png'),
+    'UVPPSTTPTAWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTPTAWUVP.png'),
+    'UVPPSTTOTBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTOTBUVP.png'),
+    'UVPPSTTOTWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTOTWUVP.png'),
+    'UVPPSTTOTABUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTOTABUVP.png'),
+    'UVPPSTTOTAWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSTTOTAWUVP.png'),
+    'UVPPSSLPTBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSSLPTBUVP.png'),
+    'UVPPSSLPTWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSSLPTWUVP.png'),
+    'UVPPSOPTTBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSOPTTBUVP.png'),
+    'UVPPSOPTTWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSOPTTWUVP.png'),
 
-    'UVPPSEITTTSBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSEITTTSBUVP.png'),
-    'UVPPSEITTTSWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSEITTTSWUVP.png'),
-    'UVPPSTTPTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTPTBUVP.png'),
-    'UVPPSTTPTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTPTWUVP.png'),
-    'UVPPSTTPTABUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTPTABUVP.png'),
-    'UVPPSTTPTAWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTPTAWUVP.png'),
-    'UVPPSTTOTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTOTBUVP.png'),
-    'UVPPSTTOTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTOTWUVP.png'),
-    'UVPPSTTOTABUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTOTABUVP.png'),
-    'UVPPSTTOTAWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSTTOTAWUVP.png'),
-    'UVPPSSLPTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSSLPTBUVP.png'),
-    'UVPPSSLPTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSSLPTWUVP.png'),
-    'UVPPSOPTTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSOPTTBUVP.png'),
-    'UVPPSOPTTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSOPTTWUVP.png'),
+    # TWO LINE
+    'UVPPSVETTBUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSVETTBUVP.png'),
+    'UVPPSVETTWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSVETTWUVP.png'),
+    'UVPCCGTUMBUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPCCGTUMWUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPJMMAMATBUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPJMMAMATWUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSAUNTTBUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
+    'UVPPSAUNTTWUVP': os.path.join(script_dir, 'background', 'Tumblers', '_blank.png'),
 
-    'UVPPSVETTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSVETTBUVP.png'),
-    'UVPPSVETTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', 'UVPPSVETTWUVP.png'),
-    'UVPCCGTUMBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPCCGTUMWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPJMMAMATBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPJMMAMATWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSAUNTTBUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
-    'UVPPSAUNTTWUVP': os.path.join(script_dir, 'Backgrown', 'Tumblers', '_blank.png'),
+    # HALLOWEEN
+    'UVPPSHSTGUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSHSTGUVP.png'),
+    'UVPPSHSTWUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSHSTWUVP.png'),
+    'UVPPSHSTPUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSHSTPUVP.png'),
+    'UVPPSHSTHUVP': os.path.join(script_dir, 'background', 'Tumblers', 'UVPPSHSTHUVP.png'),
 }  
 
 sku_to_font = {
 
-    # tumblers
-    'UVPPSSCCPTUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'), 
-    'UVPJMHDBSUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
+    # SCRIPT
+    'UVPUYPTBFUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
+    'UVPPSACRYLMIUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'), 
+    'UVPPSSCCPTUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSPICBFUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
-    'UVPPSAIRATTBUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
+    'UVPUYSDD2UVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPRADENTUVP': os.path.join(script_dir, 'Fonts', 'Brooke Smith Script.ttf'),
     'UVPPSGKNTPUVP': os.path.join(script_dir, 'Fonts', 'Versailles LT Regular.ttf'),
     'UVPPSGKNTSUVP': os.path.join(script_dir, 'Fonts', 'DancingScript-Bold.ttf'),
+    'UVPANWTTUVP': os.path.join(script_dir, 'Fonts', 'Rumba.ttf'),
 
+    # PIC
     'UVPANWHTUVP': os.path.join(script_dir, 'Fonts', 'Rumba.ttf'),
     'UVPPSTBUVP': os.path.join(script_dir, 'Fonts', 'Breathing Regular.ttf'),
     'UVPPSKFGPUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
     'UVPPSKFGWUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
 
+    # DENTAL
     'UVPPSDENTTELUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSDENTBLKUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSDENTPNKUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
 
-    'UVPPSKIDTBUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
-    'UVPPSKIDTWUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
-    'UVPPSKIDTPUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
-    
+     # TEACHERS    
     'UVPUYSTD1UVP': os.path.join(script_dir, 'Fonts', 'Apricots.ttf'),  
     'UVPUYSTD2UVP': os.path.join(script_dir, 'Fonts', 'Apricots.ttf'),  
     'UVPUYSTD3UVP': os.path.join(script_dir, 'Fonts', 'Apricots.ttf'),  
@@ -121,11 +141,17 @@ sku_to_font = {
     'UVPPSPENTUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSBUSTUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
 
+    # KIDS TUM
     'UVPJMKTDSUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
     'UVPJMKTMTUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
     'UVPJMKTPCUVP': os.path.join(script_dir, 'Fonts', 'DancingScript-Bold.ttf'),
     'UVPJMKTUCUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
 
+    'UVPPSKIDTBUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
+    'UVPPSKIDTWUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
+    'UVPPSKIDTPUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
+
+    # BLACK / WHITE
     'UVPPSB16BUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSB16WUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSTTUMBUVP': os.path.join(script_dir, 'Fonts', 'I Love Glitter.ttf'),
@@ -138,7 +164,12 @@ sku_to_font = {
     'UVPJMSLCLWUVP': os.path.join(script_dir, 'Fonts', 'Shorelines Script Bold.otf'),
     'UVPPSNUBRBUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSNUBRWUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
+    'UVPJMHDBSUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
+    'UVPJMHDWSUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
+    'UVPJMHDBPUVP': os.path.join(script_dir, 'Fonts', 'BebasNeue-Regular.ttf'),
+    'UVPJMHDWPUVP': os.path.join(script_dir, 'Fonts', 'BebasNeue-Regular.ttf'),
 
+    # HORAZONAL
     'UVPPSEITTTSBUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSEITTTSWUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSTTPTBUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
@@ -154,6 +185,7 @@ sku_to_font = {
     'UVPPSOPTTBUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSOPTTWUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
 
+    # TWO LINE
     'UVPPSVETTBUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPPSVETTWUVP': os.path.join(script_dir, 'Fonts', 'BrittanySignature.ttf'),
     'UVPCCGTUMBUVP': os.path.join(script_dir, 'Fonts', 'Radley-Regular.ttf'),
@@ -162,12 +194,20 @@ sku_to_font = {
     'UVPJMMAMATWUVP': os.path.join(script_dir, 'Fonts', 'AmaticSC-Regular.ttf'),
     'UVPPSAUNTTBUVP': os.path.join(script_dir, 'Fonts', 'BrimNarrow-Combined.ttf'),
     'UVPPSAUNTTWUVP': os.path.join(script_dir, 'Fonts', 'BrimNarrow-Combined.ttf'),
+
+    # HALLOWEEN
+    'UVPPSHSTGUVP': os.path.join(script_dir, 'Fonts', 'Charu_Chandan_BloodDrip-Regular.ttf'),
+    'UVPPSHSTWUVP': os.path.join(script_dir, 'Fonts', 'Charu_Chandan_BloodDrip-Regular.ttf'),
+    'UVPPSHSTPUVP': os.path.join(script_dir, 'Fonts', 'Charu_Chandan_BloodDrip-Regular.ttf'),
+    'UVPPSHSTHUVP': os.path.join(script_dir, 'Fonts', 'Charu_Chandan_BloodDrip-Regular.ttf'),
 }
 
 sku_to_second_line_font = { 
     'UVPPSGKNTPUVP': os.path.join(script_dir, 'Fonts', 'Calibri-Heart.ttf'),
     'UVPPSGKNTSUVP': os.path.join(script_dir, 'Fonts', 'Calibri-Heart.ttf'),
+    'UVPANWTTUVP': os.path.join(script_dir, 'Fonts', 'DB Sans Regular.otf'),
 
+    # TWO LINE
     'UVPPSVETTBUVP': os.path.join(script_dir, 'Fonts', 'BebasNeue-Regular.ttf'),
     'UVPPSVETTWUVP': os.path.join(script_dir, 'Fonts', 'BebasNeue-Regular.ttf'),
     'UVPCCGTUMBUVP': os.path.join(script_dir, 'Fonts', 'I Love Glitter.ttf'),
@@ -197,21 +237,6 @@ skip_line = {
     ],  
     },  
     "line2": {  
-        "physical therapist": [  
-            "UVPPSTTPTBUVP", "UVPPSTTPTWUVP",  
-        ],  
-        "physical therapist assistant": [  
-            "UVPPSTTPTABUVP", "UVPPSTTPTAWUVP",  
-        ],  
-        "occupational therapist": [  
-            "UVPPSTTOTBUVP", "UVPPSTTOTWUVP",  
-        ],  
-        "occupational therapist assistant": [  
-            "UVPPSTTOTABUVP", "UVPPSTTOTAWUVP",  
-        ],  
-        "speech-language pathologist": [  
-            "UVPPSSLPTBUVP", "UVPPSSLPTWUVP",  
-        ], 
     },  
 } 
 
@@ -221,11 +246,47 @@ def process_font_color(font_color, clean_sku):
                      "UVPPSTTOTABUVP", "UVPPSSLPTBUVP", "UVPPSOPTTBUVP"]:  
         font_color = (0, 0, 0)  
     return font_color  
+
+def process_special_rules(clean_sku, line, line_index):  
+    # replace between spaces  
+    if clean_sku in ["UVPCCGTUMBUVP", "UVPCCGTUMWUVP", "UVPJMMAMATBUVP", "UVPJMMAMATWUVP", "UVPPSAUNTTBUVP", "UVPPSAUNTTWUVP"] and line_index == 1:  # line 2 edit  
+        line = re.sub(r'[ ,]+', '_', line)  
+    if clean_sku in ["UVPPSGKNTPUVP", "UVPPSGKNTSUVP"] and line_index == 1:  # line 2 edit  
+        line = re.sub(r'[ ,]+', '-*-', line)  
+    # replace end spaces  
+    if clean_sku in ["UVPPSTTUMBUVP", "UVPPSTTUMWUVP"]:  
+        processed_line = f"[_{line}_]"  
+    elif clean_sku in ["UVPPSSTILGBHUVP", "UVPPSSTILGWHUVP"]:  
+        processed_line = f"{line}_"  
+    elif clean_sku in ["UVPJMSLCLBUVP", "UVPJMSLCLWUVP"]:  
+        processed_line = f"({line})"  
+    elif clean_sku in ["UVPCCGTUMBUVP", "UVPCCGTUMWUVP", "UVPJMMAMATBUVP", "UVPJMMAMATWUVP", "UVPPSAUNTTBUVP", "UVPPSAUNTTWUVP"] and line_index == 1:  # line 2 edit  
+        processed_line = f"[_{line}_]"  
+    else:  
+        processed_line = line  
+  
+    return processed_line 
   
 sku_to_fontsize_placement = {  # (font-size, x, y)  
 
 
-    #  tumblers 
+    # SCRIPT
+    'UVPUYPTBFUVP': {     
+         1: (700, 500),  2: (700, 500),  3: (700, 500),  4: (700, 500),  5: (700, 500),  
+         6: (700, 500),  7: (700, 500),  8: (700, 500),  9: (700, 500), 10: (700, 500),  
+        11: (500, 600), 12: (500, 600), 13: (500, 600), 14: (500, 600), 15: (500, 600), 
+        16: (500, 600), 17: (500, 600), 18: (500, 600), 19: (500, 600), 20: (500, 600),
+        21: (400, 700), 22: (400, 700), 23: (400, 700), 24: (400, 700), 25: (400, 700), 
+        26: (400, 700), 27: (400, 700), 28: (400, 700), 29: (400, 700), 30: (400, 700),
+    },
+    'UVPPSACRYLMIUVP': {     
+         1: (700, 500),  2: (700, 500),  3: (700, 500),  4: (700, 500),  5: (700, 500),  
+         6: (700, 500),  7: (700, 500),  8: (700, 500),  9: (700, 500), 10: (700, 500),  
+        11: (500, 600), 12: (500, 600), 13: (500, 600), 14: (500, 600), 15: (500, 600), 
+        16: (500, 600), 17: (500, 600), 18: (500, 600), 19: (500, 600), 20: (500, 600),
+        21: (400, 700), 22: (400, 700), 23: (400, 700), 24: (400, 700), 25: (400, 700), 
+        26: (400, 700), 27: (400, 700), 28: (400, 700), 29: (400, 700), 30: (400, 700),
+    },
     'UVPPSSCCPTUVP': {     
          1: (600, 500),  2: (600, 500),  3: (600, 500),  4: (600, 500),  5: (600, 500),  
          6: (600, 500),  7: (600, 500),  8: (600, 500),  9: (600, 500), 10: (600, 500),  
@@ -234,19 +295,13 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         21: (400, 700), 22: (400, 700), 23: (400, 700), 24: (400, 700), 25: (400, 700), 
         26: (400, 700), 27: (400, 700), 28: (400, 700), 29: (400, 700), 30: (400, 700),
     },
-    'UVPJMHDBSUVP': {       
-         1: (425, 1200, 500),  2: (425, 1200, 500),  3: (425, 1200, 500),  4: (425, 1200, 500),  5: (425, 1200, 500),   
-         6: (425, 1200, 500),  7: (425, 1200, 500),  8: (425, 1200, 500),  9: (425, 1200, 500), 10: (425, 1200, 500), 
-        11: (325, 1200, 600), 12: (325, 1200, 600), 13: (325, 1200, 600), 14: (325, 1200, 600), 15: (325, 1200, 600), 
-        16: (325, 1200, 600), 17: (325, 1200, 600), 18: (325, 1200, 600), 19: (325, 1200, 600), 20: (500, 1200, 600),
-    },
     'UVPPSPICBFUVP': {       
          1: (425, 1300, 500),  2: (425, 1300, 500),  3: (425, 1300, 500),  4: (425, 1300, 500),  5: (425, 1300, 500),   
          6: (425, 1300, 500),  7: (425, 1300, 500),  8: (425, 1300, 500),  9: (425, 1300, 500), 10: (425, 1300, 500), 
         11: (350, 1300, 600), 12: (350, 1300, 600), 13: (350, 1300, 600), 14: (350, 1300, 600), 15: (350, 1300, 600), 
         16: (350, 1300, 600), 17: (350, 1300, 600), 18: (325, 1300, 600), 19: (325, 1300, 600), 20: (325, 1300, 600),
     },
-    'UVPPSAIRATTBUVP': {     
+    'UVPUYSDD2UVP': {     
          1: (400, 1000),  2: (400, 1000),  3: (400, 1000),  4: (400, 1000),  5: (400, 1000),  
          6: (400, 1000),  7: (400, 1100),  8: (400, 1100),  9: (400, 1100), 10: (300, 1200),  
         11: (300, 1200), 12: (300, 1200), 13: (300, 1200), 14: (300, 1200), 15: (250, 1250), 
@@ -272,7 +327,14 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         11: (600, 450), 12: (500, 500), 13: (500, 500), 14: (450, 550), 15: (450, 550), 
         16: (400, 550), 17: (350, 600), 18: (350, 600), 19: (300, 650), 20: (300, 650),
     },
-    
+    'UVPANWTTUVP': {     
+         1: (800, 300),  2: (800, 300),  3: (800, 300),  4: (800, 300),  5: (800, 300),  
+         6: (800, 300),  7: (700, 400),  8: (700, 400),  9: (700, 400), 10: (600, 450),  
+        11: (600, 450), 12: (500, 500), 13: (500, 500), 14: (450, 550), 15: (450, 550), 
+        16: (400, 550), 17: (350, 600), 18: (350, 600), 19: (300, 650), 20: (300, 650),
+    },
+
+    # PIC
     'UVPANWHTUVP': {     
          1: (800, 400), 2: (800, 400), 3: (800, 400), 4: (800, 400), 5: (800, 400),  
          6: (800, 400), 7: (800, 400), 8: (800, 300, 400),  9: (800, 300, 400), 10: (800, 300, 400),  
@@ -298,6 +360,7 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         16: (600, 100, 500), 17: (500, 100, 500), 18: (500, 100, 500), 19: (400, 100, 600), 20: (400, 100, 600),
     },
 
+    # DENTAL
     'UVPPSDENTTELUVP': {     
          1: (700, 400), 2: (700, 400), 3: (700, 400), 4: (700, 400), 5: (700, 400),  
          6: (700, 400), 7: (700, 400), 8: (700, 400), 9: (700, 400), 10: (600, 400),  
@@ -316,24 +379,8 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         11: (500, 200, 500), 12: (500, 200, 500), 13: (500, 200, 500), 14: (500, 200, 500), 15: (500, 200, 500), 
         16: (400, 100, 600), 17: (400, 100, 600), 18: (400, 100, 600), 19: (400, 100, 600), 20: (400, 100, 600),
     },
-    'UVPPSKIDTBUVP': {     
-         1: (1400, -100), 2: (1400, -100), 3: (1400, -100), 4: (1400, -100), 5: (1400, -100),  
-         6: (1400, -100), 7: (1300, -50),  8: (1100, 100),  9: (1100, 100), 10: (1100, 100),  
-        11: (900, 200),  12: (850, 250),  13: (800, 300),  14: (800, 300),  15: (600, 500), 
-        16: (600, 500),  17: (600, 500),  18: (550, 550),  19: (500, 600),  20: (500, 600),
-    },
-    'UVPPSKIDTWUVP': {     
-         1: (1400, -100), 2: (1400, -100), 3: (1400, -100), 4: (1400, -100), 5: (1400, -100),  
-         6: (1400, -100), 7: (1300, -50),  8: (1100, 100),  9: (1100, 100), 10: (1100, 100),  
-        11: (900, 200),  12: (850, 250),  13: (800, 300),  14: (800, 300),  15: (600, 500), 
-        16: (600, 500),  17: (600, 500),  18: (550, 550),  19: (500, 600),  20: (500, 600),
-    },
-    'UVPPSKIDTPUVP': {     
-         1: (1400, -100), 2: (1400, -100), 3: (1400, -100), 4: (1400, -100), 5: (1400, -100),  
-         6: (1400, -100), 7: (1300, -50),  8: (1100, 100),  9: (1100, 100), 10: (1100, 100),  
-        11: (900, 200),  12: (850, 250),  13: (800, 300),  14: (800, 300),  15: (600, 500), 
-        16: (600, 500),  17: (600, 500),  18: (550, 550),  19: (500, 600),  20: (500, 600),
-    },
+
+    # TEACHERS  
     'UVPUYSTD1UVP': {     
         1: (650, 500), 2: (650, 500), 3: (650, 500), 4: (650, 500), 5: (650, 500),  
         6: (650, 500), 7: (650, 500), 8: (650, 500), 9: (650, 500), 10: (650, 500),  
@@ -402,6 +449,7 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         16: (400, 600), 17: (400, 600), 18: (400, 600), 19: (350, 700), 20: (350, 700),
     },
 
+    # KIDS TUM
     'UVPJMKTDSUVP': {     
          1: (800, 300), 2: (800, 300), 3: (800, 300), 4: (800, 900, 300), 5: (800, 700, 300),  
          6: (800, 500, 300),  7: (800, 300, 300),  8: (700, 100, 400),  9: (700, 100, 400), 10: (600, 200, 450),  
@@ -427,6 +475,26 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         16: (400, 200, 550), 17: (350, 100, 600), 18: (350, 100, 600), 19: (300, 100, 650), 20: (300, 100, 650),
     },
 
+    'UVPPSKIDTBUVP': {     
+         1: (1400, -100), 2: (1400, -100), 3: (1400, -100), 4: (1400, -100), 5: (1400, -100),  
+         6: (1400, -100), 7: (1300, -50),  8: (1100, 100),  9: (1100, 100), 10: (1100, 100),  
+        11: (900, 200),  12: (850, 250),  13: (800, 300),  14: (800, 300),  15: (600, 500), 
+        16: (600, 500),  17: (600, 500),  18: (550, 550),  19: (500, 600),  20: (500, 600),
+    },
+    'UVPPSKIDTWUVP': {     
+         1: (1400, -100), 2: (1400, -100), 3: (1400, -100), 4: (1400, -100), 5: (1400, -100),  
+         6: (1400, -100), 7: (1300, -50),  8: (1100, 100),  9: (1100, 100), 10: (1100, 100),  
+        11: (900, 200),  12: (850, 250),  13: (800, 300),  14: (800, 300),  15: (600, 500), 
+        16: (600, 500),  17: (600, 500),  18: (550, 550),  19: (500, 600),  20: (500, 600),
+    },
+    'UVPPSKIDTPUVP': {     
+         1: (1400, -100), 2: (1400, -100), 3: (1400, -100), 4: (1400, -100), 5: (1400, -100),  
+         6: (1400, -100), 7: (1300, -50),  8: (1100, 100),  9: (1100, 100), 10: (1100, 100),  
+        11: (900, 200),  12: (850, 250),  13: (800, 300),  14: (800, 300),  15: (600, 500), 
+        16: (600, 500),  17: (600, 500),  18: (550, 550),  19: (500, 600),  20: (500, 600),
+    },
+
+    # BLACK / WHITE
     'UVPPSB16BUVP': {     
          1: (700, 200, 300),  2: (700, 200, 300),  3: (700, 200, 300),  4: (700, 200, 300),  5: (700, 200, 300),  
          6: (700, 200, 300),  7: (700, 200, 300),  8: (700, 200, 300),  9: (700, 200, 300), 10: (700, 200, 300),  
@@ -505,7 +573,32 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         11: (350, 1300, 600), 12: (350, 1300, 600), 13: (350, 1300, 600), 14: (350, 1300, 600), 15: (350, 1300, 600), 
         16: (350, 1300, 600), 17: (350, 1300, 600), 18: (325, 1300, 600), 19: (325, 1300, 600), 20: (325, 1300, 600),
     },
+    'UVPJMHDBSUVP': {       
+         1: (425, 1200, 500),  2: (425, 1200, 500),  3: (425, 1200, 500),  4: (425, 1200, 500),  5: (425, 1200, 500),   
+         6: (425, 1200, 500),  7: (425, 1200, 500),  8: (425, 1200, 500),  9: (425, 1200, 500), 10: (425, 1200, 500), 
+        11: (325, 1200, 600), 12: (325, 1200, 600), 13: (325, 1200, 600), 14: (325, 1200, 600), 15: (325, 1200, 600), 
+        16: (325, 1200, 600), 17: (325, 1200, 600), 18: (325, 1200, 600), 19: (325, 1200, 600), 20: (500, 1200, 600),
+    },
+    'UVPJMHDWSUVP': {       
+         1: (425, 1200, 500),  2: (425, 1200, 500),  3: (425, 1200, 500),  4: (425, 1200, 500),  5: (425, 1200, 500),   
+         6: (425, 1200, 500),  7: (425, 1200, 500),  8: (425, 1200, 500),  9: (425, 1200, 500), 10: (425, 1200, 500), 
+        11: (325, 1200, 600), 12: (325, 1200, 600), 13: (325, 1200, 600), 14: (325, 1200, 600), 15: (325, 1200, 600), 
+        16: (325, 1200, 600), 17: (325, 1200, 600), 18: (325, 1200, 600), 19: (325, 1200, 600), 20: (500, 1200, 600),
+    },
+    'UVPJMHDBPUVP': {       
+         1: (425, 1200, 500),  2: (425, 1200, 500),  3: (425, 1200, 500),  4: (425, 1200, 500),  5: (425, 1200, 500),   
+         6: (425, 1200, 500),  7: (425, 1200, 500),  8: (425, 1200, 500),  9: (425, 1200, 500), 10: (425, 1200, 500), 
+        11: (325, 1200, 600), 12: (325, 1200, 600), 13: (325, 1200, 600), 14: (325, 1200, 600), 15: (325, 1200, 600), 
+        16: (325, 1200, 600), 17: (325, 1200, 600), 18: (325, 1200, 600), 19: (325, 1200, 600), 20: (500, 1200, 600),
+    },
+    'UVPJMHDWPUVP': {       
+         1: (425, 1200, 500),  2: (425, 1200, 500),  3: (425, 1200, 500),  4: (425, 1200, 500),  5: (425, 1200, 500),   
+         6: (425, 1200, 500),  7: (425, 1200, 500),  8: (425, 1200, 500),  9: (425, 1200, 500), 10: (425, 1200, 500), 
+        11: (325, 1200, 600), 12: (325, 1200, 600), 13: (325, 1200, 600), 14: (325, 1200, 600), 15: (325, 1200, 600), 
+        16: (325, 1200, 600), 17: (325, 1200, 600), 18: (325, 1200, 600), 19: (325, 1200, 600), 20: (500, 1200, 600),
+    },
 
+    # HORAZONAL
     'UVPPSEITTTSBUVP': {     
          1: (400, 1300),  2: (400, 1300),  3: (400, 1300),  4: (400, 1300),  5: (400, 1300),  
          6: (400, 1300),  7: (400, 1300),  8: (400, 1300),  9: (400, 1300), 10: (300, 1300),  
@@ -591,6 +684,7 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
         16: (250, 2500), 17: (200, 2500), 18: (200, 2500), 19: (150, 2500), 20: (150, 2500),
     },
 
+    # TWO LINE
     'UVPPSVETTBUVP': {     
          1: (400, 1300),  2: (400, 1300),  3: (400, 1300),  4: (400, 1300),  5: (400, 1300),  
          6: (400, 1300),  7: (400, 1300),  8: (400, 1300),  9: (400, 1300), 10: (300, 1300),  
@@ -638,6 +732,32 @@ sku_to_fontsize_placement = {  # (font-size, x, y)
          6: (700, 400),  7: (500, 500),  8: (500, 500),  9: (500, 500), 10: (450, 550),  
         11: (450, 550), 12: (400, 600), 13: (350, 650), 14: (300, 650), 15: (300, 650), 
         16: (300, 650), 17: (250, 700), 18: (250, 700), 19: (200, 750), 20: (200, 750),
+    },
+
+    # HALLOWEEN
+    'UVPPSHSTGUVP': {     
+         1: (800, 500, 600),  2: (800, 400, 600),  3: (800, 300, 600),  4: (800, 200, 600),  5: (700, 100, 600),  
+         6: (600, 100, 600),  7: (500, 100, 700),  8: (400, 100, 750),  9: (300, 100, 800), 10: (250, 100, 800),  
+        11: (250, 100, 800), 12: (200, 100, 850), 13: (200, 100, 850), 14: (200, 100, 850), 15: (150, 100, 900), 
+        16: (150, 100, 900), 17: (150, 100, 900), 18: (150, 100, 900), 19: (100, 100, 950), 20: (100, 100, 950),
+    },
+    'UVPPSHSTWUVP': {     
+         1: (800, 500, 600),  2: (800, 400, 600),  3: (800, 300, 600),  4: (800, 200, 600),  5: (700, 100, 600),  
+         6: (600, 100, 600),  7: (500, 100, 700),  8: (400, 100, 750),  9: (300, 100, 800), 10: (250, 100, 800),  
+        11: (250, 100, 800), 12: (200, 100, 850), 13: (200, 100, 850), 14: (200, 100, 850), 15: (150, 100, 900), 
+        16: (150, 100, 900), 17: (150, 100, 900), 18: (150, 100, 900), 19: (100, 100, 950), 20: (100, 100, 950),
+    },
+    'UVPPSHSTPUVP': {     
+         1: (800, 500, 600),  2: (800, 400, 600),  3: (800, 300, 600),  4: (800, 200, 600),  5: (700, 100, 600),  
+         6: (600, 100, 600),  7: (500, 100, 700),  8: (400, 100, 750),  9: (300, 100, 800), 10: (250, 100, 800),  
+        11: (250, 100, 800), 12: (200, 100, 850), 13: (200, 100, 850), 14: (200, 100, 850), 15: (150, 100, 900), 
+        16: (150, 100, 900), 17: (150, 100, 900), 18: (150, 100, 900), 19: (100, 100, 950), 20: (100, 100, 950),
+    },
+    'UVPPSHSTHUVP': {     
+         1: (800, 500, 600),  2: (800, 400, 600),  3: (800, 300, 600),  4: (800, 200, 600),  5: (700, 100, 600),  
+         6: (600, 100, 600),  7: (500, 100, 700),  8: (400, 100, 750),  9: (300, 100, 800), 10: (250, 100, 800),  
+        11: (250, 100, 800), 12: (200, 100, 850), 13: (200, 100, 850), 14: (200, 100, 850), 15: (150, 100, 900), 
+        16: (150, 100, 900), 17: (150, 100, 900), 18: (150, 100, 900), 19: (100, 100, 950), 20: (100, 100, 950),
     },
     
  }
@@ -670,6 +790,18 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
     },
+    'UVPANWTTUVP': {     
+         1: (300, 1200),  2: (300, 1200),  3: (300, 1200),  4: (300, 1200),  5: (300, 1200),  
+         6: (300, 1200),  7: (300, 1200),  8: (300, 1200),  9: (300, 1200), 10: (300, 1200),  
+        11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
+        16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
+        21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
+        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
+        41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
+        46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
+    },
 
     'UVPPSKFGPUVP': {     
          1: (600, 300), 2: (600, 300), 3: (600, 300), 4: (600, 300), 5: (600, 300),  
@@ -684,6 +816,7 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         16: (400, 100, 500), 17: (300, 100, 500), 18: (300, 100, 500), 19: (200, 100, 600), 20: (200, 100, 600),
     },
 
+    # TWO LINE
     'UVPPSVETTBUVP': {     
          1: (300, 2100),  2: (300, 2100),  3: (300, 2100),  4: (300, 2100),  5: (300, 2100),  
          6: (300, 2100),  7: (300, 2100),  8: (300, 2100),  9: (300, 2100), 10: (200, 2100),  
@@ -702,8 +835,8 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
         16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
         21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
-        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
-        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (140, 1200), 29: (140, 1200), 30: (130, 1200),
+        31: (130, 1200), 32: (120, 1200), 33: (120, 1200), 34: (110, 1200), 35: (110, 1200), 
         36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
@@ -714,8 +847,8 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
         16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
         21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
-        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
-        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (140, 1200), 29: (140, 1200), 30: (130, 1200),
+        31: (130, 1200), 32: (120, 1200), 33: (120, 1200), 34: (110, 1200), 35: (110, 1200), 
         36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
@@ -726,8 +859,8 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
         16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
         21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
-        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
-        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (140, 1200), 29: (140, 1200), 30: (130, 1200),
+        31: (130, 1200), 32: (120, 1200), 33: (120, 1200), 34: (110, 1200), 35: (110, 1200), 
         36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
@@ -738,8 +871,8 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
         16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
         21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
-        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
-        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (140, 1200), 29: (140, 1200), 30: (130, 1200),
+        31: (130, 1200), 32: (120, 1200), 33: (120, 1200), 34: (110, 1200), 35: (110, 1200), 
         36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
@@ -750,8 +883,8 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
         16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
         21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
-        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
-        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (140, 1200), 29: (140, 1200), 30: (130, 1200),
+        31: (130, 1200), 32: (120, 1200), 33: (120, 1200), 34: (110, 1200), 35: (110, 1200), 
         36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
@@ -762,8 +895,8 @@ sku_to_second_fontsize_placement = {  # (font-size, x, y)
         11: (300, 1200), 12: (300, 1200), 13: (250, 1200), 14: (250, 1200), 15: (250, 1200), 
         16: (250, 1200), 17: (200, 1200), 18: (200, 1200), 19: (200, 1200), 20: (200, 1200),
         21: (200, 1200), 22: (200, 1200), 23: (200, 1200), 24: (150, 1200), 25: (150, 1200), 
-        26: (150, 1200), 27: (150, 1200), 28: (150, 1200), 29: (150, 1200), 30: (150, 1200),
-        31: (150, 1200), 32: (150, 1200), 33: (100, 1200), 34: (100, 1200), 35: (100, 1200), 
+        26: (150, 1200), 27: (150, 1200), 28: (140, 1200), 29: (140, 1200), 30: (130, 1200),
+        31: (130, 1200), 32: (120, 1200), 33: (120, 1200), 34: (110, 1200), 35: (110, 1200), 
         36: (100, 1200), 37: (100, 1200), 38: (100, 1200), 39: (100, 1200), 40: (100, 1200),
         41: (100, 1200), 42: (100, 1200), 43: (100, 1200), 44: (100, 1200), 45: (100, 1200), 
         46: (100, 1200), 47: (100, 1200), 48: (100, 1200), 49: (100, 1200), 50: (100, 1200),
