@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>  
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>     
 </head>  
   
 <body>  
@@ -61,17 +61,21 @@
   
         <div class="p-4">  
             <h2>PreCheck</h2>  
-            <p>download a .CSV file from ShipStation, then browse for the downloaded file and hit submit to start the precheck process</p>  
+            <p>download a .CSV file from ShipStation, then browse for the downloaded file and hit preview .CSV to start the precheck process. check all SKUs before downloading</p>  
         </div>  
   
         <!-- BROWES and SUBMIT -->  
   
-        <div>  
-            <img src="{{ url_for('static', filename='images/bad check.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">  
-            <img src="{{ url_for('static', filename='images/error bug.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">  
-            <img src="{{ url_for('static', filename='images/good check.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">  
-            <img src="{{ url_for('static', filename='images/error check.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">  
-        </div>  
+        <div> 
+            <img src="{{ url_for('static', filename='images/missing_field.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Missing Field Logo" data-toggle="tooltip" data-placement="top" 
+            title="missing field">
+            <img src="{{ url_for('static', filename='images/unknown_design.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Missing Design Logo"data-toggle="tooltip" data-placement="top" 
+            title="unknown design">  
+            <img src="{{ url_for('static', filename='images/good_check.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Good Check Logo"data-toggle="tooltip" data-placement="top" 
+            title="fields are filled"> 
+            <img src="{{ url_for('static', filename='images/error_check.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Error Check Logo"data-toggle="tooltip" data-placement="top" 
+            title="personalization error">
+        </div> 
   
         <div class="container p-3">  
             <form id="upload-csv-form">  
@@ -89,7 +93,7 @@
                     <div class="modal-content">  
                         <div class="modal-header">  
                             <h5 class="modal-title" id="preview-modal-label">CSV Preview</h5>  
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">  
                                 <span aria-hidden="true">&times;</span>  
                             </button>  
                         </div>  
@@ -108,8 +112,14 @@
         <div id="result"></div>  
   
     </div>  
-  
-    <script src="{{ url_for('static', filename='js/precheck.js') }}"></script>  
+    <script>  
+        var goodCheckUrl = "{{ url_for('static', filename='images/good_check.svg') }}";  
+        var unknownDesignUrl = "{{ url_for('static', filename='images/unknown_design.svg') }}";  
+        var missingCheckUrl = "{{ url_for('static', filename='images/missing_field.svg') }}";
+        var errorCheckUrl = "{{ url_for('static', filename='images/error_check.svg') }}"; 
+    </script>
+    <script src="{{ url_for('static', filename='js/precheck_config.js') }}" type="module"></script>      
+    <script src="{{ url_for('static', filename='js/precheck.js') }}" type="module"></script>  
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>  
   

@@ -1,84 +1,87 @@
 <!DOCTYPE html>  
-<html lang="en"> 
-
+<html lang="en">  
+  
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Print Layout Lab</title> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel ="shortcut icon" type="x-icon" href="{{ url_for('static', filename='images/Completeful Logo Black.svg') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Print Layout Lab</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link rel="shortcut icon" type="x-icon" href="{{ url_for('static', filename='images/Completeful Logo Black.svg') }}">  
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">  
 </head>  
-<body> 
-    
-    <header class="container-fluid text-center">
-
-     <!-- NAV -->
-     <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong p-0 pt-1">
-        <div class="container-fluid">
-        <a href="{{ url_for('home') }}">
-        <img src="{{ url_for('static', filename='images/home.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Template Logo">
-        </a>
-          <div>            
-            <a class="m-0" href="https://ship7.shipstation.com/orders/awaiting-shipment" target="_blank">  
-            <img src="{{ url_for('static', filename='images/ShipStation_black_logo.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="ShipStation Link">  
-            </a> 
-            <a class="m-0" href="{{ url_for('precheck') }}">  
-            <img src="{{ url_for('static', filename='images/precheck.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Precheck Logo">  
+<body>  
+  
+<header class="container-fluid text-center">  
+  
+    <!-- NAV -->  
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong p-0 pt-1">  
+        <div class="container-fluid">  
+            <a href="{{ url_for('home') }}">  
+                <img src="{{ url_for('static', filename='images/home.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Template Logo">  
             </a>  
-            <a class="m-0">
-            <img src="{{ url_for('static', filename='images/designer.svg') }}" width="30" height="30" class="d-inline-block align-center" alt="Template Logo">
-            Designer</a>
-            <a class="m-0" href="{{ url_for('templatemerger') }}">
-            <img src="{{ url_for('static', filename='images/template.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">
-            </a>
-          </div>
-        </div>
-      </nav>
+            <div>  
+                <a class="m-0" href="https://ship7.shipstation.com/orders/awaiting-shipment" target="_blank">  
+                    <img src="{{ url_for('static', filename='images/ShipStation_black_logo.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="ShipStation Link">  
+                </a>  
+                <a class="m-0" href="{{ url_for('precheck') }}">  
+                    <img src="{{ url_for('static', filename='images/precheck.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Precheck Logo">  
+                </a>  
+                <a class="m-0">  
+                    <img src="{{ url_for('static', filename='images/designer.svg') }}" width="30" height="30" class="d-inline-block align-center" alt="Template Logo">  
+                    Designer</a>  
+                <a class="m-0" href="{{ url_for('templatemerger') }}">  
+                    <img src="{{ url_for('static', filename='images/template.svg') }}" width="30" height="30" class="icon d-inline-block align-center" alt="Designer Logo">  
+                </a>  
+            </div>  
+        </div>  
+    </nav>  
+  
+    <!-- BANNER -->  
+  
+    <div class="row p-3 banner align-items-center">  
+        <div class="col-sm col-md-4 col-lg-2 p-sm-4 p-md-2 logo">  
+            <img src="{{ url_for('static', filename='images/Completeful Logo White.svg') }}" alt="Completeful Logo">  
+        </div>  
+        <div class="col-sm col-md-8 col-lg-10 p-sm-4 p-md-1">  
+            <h1 class="display-5 fw-bold">PRINT LAYOUT LAB</h1>  
+        </div>  
+    </div>  
+</header>  
+  
+<!-- CONTENT -->  
+  
+<div class="container text-center p-sm-2 p-md-5">  
+  
+    <div class="p-4">  
+        <h2>Designer</h2>  
+        <p>browse for a updated .CSV file from PreCheck and hit submit to start the design process</p>  
+    </div>  
+  
+    <!-- BROWSE and SUBMIT -->  
+  
+    <div class="container p-3">  
+  
+        <form action="/run-script" method="post" enctype="multipart/form-data">  
+            <a class="navbar-brand m-0" href="{{ url_for('precheck') }}">  
+                <img src="{{ url_for('static', filename='images/precheck_green.svg') }}" width="40" height="40" class="icon d-inline-block align-center m-2" alt="PreCheck Link">  
+            </a>  
+            <input type="file" name="csv_file" accept=".csv">  
+            <button class="btn btn-outline-secondary m-4" type="submit">Submit</button>  
+        </form>  
+        <div class="terminal" id="terminalOutput"></div>  
+    </div>  
+</div>  
+  
+<!-- TERMINAL OUTPUT -->  
+  
+<div id="result"></div>  
+  
+<script src="{{ url_for('static', filename='js/designer.js') }}"></script>  
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>  
+  
+</body>  
+</html>  
 
-    <!-- BANNER -->
-
-        <div class="row p-3 banner align-items-center">
-            <div class="col-sm col-md-4 col-lg-2 p-sm-4 p-md-2 logo">
-                <img src="{{ url_for('static', filename='images/Completeful Logo White.svg') }}" alt="Completeful Logo">
-                </div>
-                <div class="col-sm col-md-8 col-lg-10 p-sm-4 p-md-1">
-                <h1 class="display-5 fw-bold">PRINT LAYOUT LAB</h1>
-            </div>
-        </div>
-    </header>
-
-    <!-- CONTENT -->
-
-        <div class="container text-center p-sm-2 p-md-5">
-
-            <div class="p-4">
-                <h2>Designer</h2>
-                <p>browse for a .CSV file from PreCheck and hit submit to start the design process</p>
-              </div>
-              
-            <!-- BROWES and SUBMIT -->
-
-            <div class="container p-3"> 
-
-            <form action="/run-script" method="post" enctype="multipart/form-data">
-                <a class="navbar-brand m-0" href="{{ url_for('precheck') }}">
-                <img src="{{ url_for('static', filename='images/precheck green.svg') }}" width="40" height="40" class="icon d-inline-block align-center m-2" alt="ShipStation Link">
-                </a>
-                <input type="file" name="csv_file" accept=".csv">  
-                <button class="btn btn-outline-secondary m-4" type="submit">Submit</button>  
-            </form> 
-            </div>
-        </div>
-
-    
-        <div id="result"></div>  
-        
-        <script src="{{ url_for('static', filename='js/designer.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script> 
-        
-    </body>  
-    </html>  

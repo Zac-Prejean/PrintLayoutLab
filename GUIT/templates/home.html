@@ -58,7 +58,16 @@
           <div>
 
             <div class="p-4">
-              <img src="{{ url_for('static', filename='images/designer.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Designer Logo">
+              <img src="{{ url_for('static', filename='images/precheck_green.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Designer Logo">
+                <div>
+                <p>The PreCheck page handles CSV files containing product information and personalization 
+                  data. It allows users to upload a CSV file, preview and edit the personalization fields, 
+                  validate SKUs, and download an updated CSV file with the changes.
+                <a href="{{ url_for('precheck') }}">Go to PreCheck Page</a></p>
+                </div>
+            </div>
+            <div class="p-4">
+              <img src="{{ url_for('static', filename='images/designer_green.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Designer Logo">
                 <div>
                 <p>The Designer page processes a CSV file containing 
                 product information and generates personalized images for each product based on 
@@ -67,7 +76,7 @@
                 </div>
             </div>
             <div class="p-4">
-              <img src="{{ url_for('static', filename='images/template.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Template Logo">
+              <img src="{{ url_for('static', filename='images/template_green.svg') }}" width="60" height="60" class="m-3 d-inline-block align-center" alt="Template Logo">
                 <div>
                 <p>The Template Merger Page is for processing and combining multiple 
                 images loaded by the user. It also provides a preview for the final combined image 
