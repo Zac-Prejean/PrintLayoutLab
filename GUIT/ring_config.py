@@ -1,5 +1,26 @@
 import os  
   
+def handle_rng_skus(clean_sku, lines, rng_sku_to_image_one_line, rng_sku_to_image_two_line, original_background_image_path):  
+    if not clean_sku.startswith("RNG"):  
+        return original_background_image_path  
+  
+    if len(lines) == 1:  
+        background_image_path = rng_sku_to_image_one_line.get(clean_sku, None)  
+    elif len(lines) == 2:  
+        background_image_path = rng_sku_to_image_two_line.get(clean_sku, None)  
+    else:  
+        background_image_path = None  
+  
+    return background_image_path
+
+def draw_white_background_if_needed(clean_sku, rng_sku_needs_white_background, font, line, text_x, text_y, draw_white_background, draw):  
+    if rng_sku_needs_white_background(clean_sku):  
+        left, text_y1, right, text_y2 = font.getbbox(line)  
+        text_width = right - left  
+        text_height = text_y2 - text_y1  
+        draw_white_background(draw, text_x, text_y, text_width, text_height)  
+
+
 rng_sku_to_image_two_line = { 
 
     "RNG35GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'background', 'jewlery', 'size-DBL.png'),  
@@ -139,47 +160,47 @@ sku_to_font = {
 
 sku_to_second_line_font = {  
 
-    "RNG35GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNG35SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG35RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNGDBL35GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),  
-    "RNGDBL35SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL35RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
+    "RNG35GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNG35SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG35RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNGDBL35GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),  
+    "RNGDBL35SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL35RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
 
-    "RNG46GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNG46SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG46RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNGDBL46GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),  
-    "RNGDBL46SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL46RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
+    "RNG46GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNG46SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG46RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNGDBL46GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),  
+    "RNGDBL46SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL46RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
 
-    "RNG68GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG68SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG68RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNGDBL68GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL68SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL68RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
+    "RNG68GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG68SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG68RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNGDBL68GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL68SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL68RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
 
-    "RNG78GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),  
-    "RNG78SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG78RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNGDBL78GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL78SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),  
-    "RNGDBL78RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
+    "RNG78GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),  
+    "RNG78SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG78RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNGDBL78GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL78SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),  
+    "RNGDBL78RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
 
-    "RNG910GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG910SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),  
-    "RNG910RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNGDBL910GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL910SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL910RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
+    "RNG910GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG910SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),  
+    "RNG910RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNGDBL910GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL910SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL910RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
 
-    "RNG911GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNG911SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),  
-    "RNG911RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
-    "RNGDBL911GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL911SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'),   
-    "RNGDBL911RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom1.4.otf'), 
+    "RNG911GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNG911SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),  
+    "RNG911RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
+    "RNGDBL911GLD": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL911SIL": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'),   
+    "RNGDBL911RSG": os.path.join(os.path.dirname(os.path.realpath(__file__)), 'fonts_JEW', 'ShelbyBottom.ttf'), 
 
 } 
 
