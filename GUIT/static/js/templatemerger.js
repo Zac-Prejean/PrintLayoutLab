@@ -23,82 +23,78 @@ document.querySelector("#flutes").addEventListener("click", function () {
   dropdown.innerText = "Flutes";
 });
 
+document.querySelector("#rings").addEventListener("click", function () {  
+  const dropdown = document.querySelector("#format-btn");  
+  dropdown.innerText = "Rings";  
+});
+
+document.querySelector("#one-name-neckless").addEventListener("click", function () {  
+  const dropdown = document.querySelector("#format-btn");  
+  dropdown.innerText = "One Name Neckless";  
+});
+
+document.querySelector("#two-name-neckless").addEventListener("click", function () {  
+  const dropdown = document.querySelector("#format-btn");  
+  dropdown.innerText = "Two Name Neckless";  
+});
+
+document.querySelector("#three-name-neckless").addEventListener("click", function () {  
+  const dropdown = document.querySelector("#format-btn");  
+  dropdown.innerText = "Three Name Neckless";  
+});
+
+document.querySelector("#four-name-neckless").addEventListener("click", function () {  
+  const dropdown = document.querySelector("#format-btn");  
+  dropdown.innerText = "Four Name Neckless";  
+});
 
 
 // Handle file input change event
 function handleFileInputChange(event) {
-  // Clear the preview area and loaded PNGs array
   previewArea.innerHTML = '';
   loadedPNGs.length = 0;
-
-  // Get the selected files
   const files = event.target.files;
-
-  // Counter to keep track of the loaded images
   let counter = 0;
 
-  // Loop through the files
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
 
-    // Create a FileReader to read the file
     const reader = new FileReader();
 
-    // Set up the FileReader onload event
     reader.onload = function (e) {
-      // Create a new Image element
       const img = new Image();
 
-      // Set the onload event for the image
       img.onload = function () {
-        // Store the loaded PNG in the array
         loadedPNGs.push(img);
-
-        // Increment the counter
         counter++;
-
-        // Check if all images are loaded
         if (counter === files.length) {
-          // Generate and display the preview of the final image
           generatePreview();
         }
       };
 
       img.src = e.target.result;
-
-      // Append the image to the preview area
       previewArea.appendChild(img);
     };
-
-    // Read the file as data URL
     reader.readAsDataURL(file);
   }
 }
 
-// Handle export button click event
 function handleExportButtonClick() {
   
-                               // DESK PLATES
+// DESK PLATES
 
   if (document.querySelector("#format-btn").innerText === "Desk Plates") {
 
-  // Check if the number of selected files exceeds the limit
   const files = document.getElementById('file-input').files;
   if (files.length > 28) {
     alert('Error: You can only select up to 28 images.');
     return;
   }
-    
-  // Generate and display the preview of the final image
   generatePreview();
-
-  // Wait for a short delay to ensure the preview is updated
   setTimeout(() => {
-    // Create a canvas element to hold the combined PNGs
+
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-
-    // Set the width and height of the canvas
     const canvasWidthInches = 24;
     const canvasHeightinches = 36;
     const dpi72 = 72.01558002 * 5;
@@ -106,173 +102,59 @@ function handleExportButtonClick() {
     const canvasHeight = canvasHeightinches * dpi72;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-
-    // Loop through the loaded PNGs and draw them onto the canvas
     for (let i = 0; i < loadedPNGs.length; i++) {
       const loadedPNG = loadedPNGs[i];
 
-       // Calculate the position to draw the image on the canvas
-       let x, y, width, height;
-       if (i === 0) {
-         x = 1.03 * dpi72;
-         y = 0.93 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 1) {
-         x = 15.38 * dpi72;
-         y = 0.93 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 2) {
-         x = 1.03 * dpi72;
-         y = 3.446 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 3) {
-         x = 15.38 * dpi72;
-         y = 3.446 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 4) {
-         x = 1.03 * dpi72;
-         y = 5.962 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 5) {
-         x = 15.38 * dpi72;
-         y = 5.962 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 6) {
-         x = 1.03 * dpi72;
-         y = 8.478 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 7) {
-         x = 15.38 * dpi72;
-         y = 8.478 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 8) {
-         x = 1.03 * dpi72;
-         y = 10.994 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 9) {
-         x = 15.38 * dpi72;
-         y = 10.994 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 10) {
-         x = 1.03 * dpi72;
-         y = 13.51 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 11) {
-         x = 15.38 * dpi72;
-         y = 13.51 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 12) {
-         x = 1.03 * dpi72;
-         y = 16.026 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 13) {
-         x = 15.38 * dpi72;
-         y = 16.026 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 14) {
-         x = 1.03 * dpi72;
-         y = 18.542 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 15) {
-         x = 15.38 * dpi72;
-         y = 18.542 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 16) {
-         x = 1.03 * dpi72;
-         y = 21.058 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 17) {
-         x = 15.38 * dpi72;
-         y = 21.058 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 18) {
-         x = 1.03 * dpi72;
-         y = 23.574 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 19) {
-         x = 15.38 * dpi72;
-         y = 23.574 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 20) {
-         x = 1.03 * dpi72;
-         y = 26.09 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 21) {
-         x = 15.38 * dpi72;
-         y = 26.09 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 22) {
-         x = 1.03 * dpi72;
-         y = 28.606 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 23) {
-         x = 15.38 * dpi72;
-         y = 28.606 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 24) {
-         x = 1.03 * dpi72;
-         y = 31.122 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 25) {
-         x = 15.38 * dpi72;
-         y = 31.122 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 26) {
-         x = 1.03 * dpi72;
-         y = 33.638 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 27) {
-         x = 15.38 * dpi72;
-         y = 33.638 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 28) {
-         x = 1.03 * dpi72;
-         y = 36.154 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else if (i === 29) {
-         x = 15.38 * dpi72;
-         y = 36.154 * dpi72;
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       } else {
-         x = i % 2 === 0 ? canvasWidth - (8 * dpi72) : canvasWidth / 24; // Adjust the x-coordinate
-         y = Math.floor((i - 1) / 2) * (2 * dpi72) + canvasHeight / 36; // Adjust the y-coordinate
-         width = 8.08 * dpi72;
-         height = 2 * dpi72;
-       }
+      const positions = [  
+        [1.03, 0.93],  
+        [15.38, 0.93],  
+        [1.03, 3.446],  
+        [15.38, 3.446],  
+        [1.03, 5.962],  
+        [15.38, 5.962],  
+        [1.03, 8.478],  
+        [15.38, 8.478],  
+        [1.03, 10.994],  
+        [15.38, 10.994],  
+        [1.03, 13.51],  
+        [15.38, 13.51],  
+        [1.03, 16.026],  
+        [15.38, 16.026],  
+        [1.03, 18.542],  
+        [15.38, 18.542],  
+        [1.03, 21.058],  
+        [15.38, 21.058],  
+        [1.03, 23.574],  
+        [15.38, 23.574],  
+        [1.03, 26.09],  
+        [15.38, 26.09],  
+        [1.03, 28.606],  
+        [15.38, 28.606],  
+        [1.03, 31.122],  
+        [15.38, 31.122],  
+        [1.03, 33.638],  
+        [15.38, 33.638],  
+        [1.03, 36.154],  
+        [15.38, 36.154],  
+      ];  
+        
+      let x, y, width, height;  
+      if (i < positions.length) {  
+        x = positions[i][0] * dpi72;  
+        y = positions[i][1] * dpi72;  
+        width = 8.08 * dpi72;  
+        height = 2 * dpi72;  
+      } else {  
+        x = i % 2 === 0 ? canvasWidth - (8 * dpi72) : canvasWidth / 24;  
+        y = Math.floor((i - 1) / 2) * (2 * dpi72) + canvasHeight / 36;  
+        width = 8.08 * dpi72;  
+        height = 2 * dpi72;  
+      }  
+      
 
     if (i < 28) {
       ctx.save();
-      ctx.translate(x + width / 2, y + height / 2); // Orgin point
+      ctx.translate(x + width / 2, y + height / 2);
       ctx.rotate(Math.PI);
       ctx.scale(-1, 1);
       ctx.drawImage(loadedPNG, -width / 2, -height / 2, width, height);
@@ -281,45 +163,31 @@ function handleExportButtonClick() {
       ctx.drawImage(loadedPNG, x, y, width, height);
     }
   }
-
-    // Convert the canvas to a data URL
     const dataURL = canvas.toDataURL('image/png', 1);
-
-    // Create a Blob from the data URL
     const blob = dataURLToBlob(dataURL);
-
-    // Create a download link for the Blob
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = 'desk_plates.png';
-
-    // Simulate a click on the link to trigger the download
     link.click();
   }, 100);
 } 
 
   
-                               // FLUTES
+// FLUTES
 
 else if (document.querySelector("#format-btn").innerText === "Flutes") {
 
-  // Check if the number of selected files exceeds the limit
   const files = document.getElementById('file-input').files;
   if (files.length > 10) {
     alert('Error: You can only select up to 10 images.');
     return;
   }
-
-    // Generate and display the preview of the final image
     generatePreview();
-
-    // Wait for a short delay to ensure the preview is updated
     setTimeout(() => {
-      // Create a canvas element to hold the combined PNGs
+
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-  
-      // Set the width and height of the canvas
+
       const canvasWidthInches = 18.504;
       const canvasHeightinches = 18.504;
       const dpi72 = 70.05406617 * 10;
@@ -327,74 +195,39 @@ else if (document.querySelector("#format-btn").innerText === "Flutes") {
       const canvasHeight = canvasHeightinches * dpi72;
       canvas.width = canvasWidth;
       canvas.height = canvasHeight;
-  
-      // Loop through the loaded PNGs and draw them onto the canvas
+
       for (let i = 0; i < loadedPNGs.length; i++) {
         const loadedPNG = loadedPNGs[i];
-  
-         // Calculate the position to draw the image on the canvas
-         let x, y, width, height;
-         if (i === 0) {
-           x = 2.25 * dpi72;
-           y = .95 * dpi72;
-           width = 4.5 * dpi72;
-           height = 1.5 * dpi72;
-         } else if (i === 1) {
-           x = 11.35 * dpi72;
-           y = .95 * dpi72;
-           width = 4.5 * dpi72;
-           height = 1.5 * dpi72;
-         } else if (i === 2) {
-           x = 2.25 * dpi72;
-           y = 4.75 * dpi72;
-          width = 4.5 * dpi72;
-          height = 1.5 * dpi72;
-        } else if (i === 3) {
-          x = 11.35 * dpi72;
-          y = 4.75 * dpi72;
-          width = 4.5 * dpi72;
-          height = 1.5 * dpi72;
-        } else if (i === 4) {
-          x = 2.25 * dpi72;
-          y = 8.55 * dpi72;
-         width = 4.5 * dpi72;
-         height = 1.5 * dpi72;
-       } else if (i === 5) {
-         x = 11.35 * dpi72;
-         y = 8.55 * dpi72;
-         width = 4.5 * dpi72;
-         height = 1.5 * dpi72;
-        } else if (i === 6) {
-          x = 2.25 * dpi72;
-          y = 12.35 * dpi72;
-         width = 4.5 * dpi72;
-         height = 1.5 * dpi72;
-       } else if (i === 7) {
-         x = 11.35 * dpi72;
-         y = 12.35 * dpi72;
-         width = 4.5 * dpi72;
-         height = 1.5 * dpi72;
-        } else if (i === 8) {
-          x = 2.25 * dpi72;
-          y = 16.15 * dpi72;
-         width = 4.5 * dpi72;
-         height = 1.5 * dpi72;
-       } else if (i === 9) {
-         x = 11.35 * dpi72;
-         y = 16.15 * dpi72;
-         width = 4.5 * dpi72;
-         height = 1.5 * dpi72;
-        
-         } else {
-           x = i % 2 === 0 ? canvasWidth - (8 * dpi72) : canvasWidth / 18.504; // Adjust the x-coordinate
-           y = Math.floor((i - 1) / 2) * (2 * dpi72) + canvasHeight / 18.504; // Adjust the y-coordinate
-           width = 4.5 * dpi72;
-           height = 1.5 * dpi72;
-         }
+
+         const positions = [  
+          [2.25, 0.95],  
+          [11.35, 0.95],  
+          [2.25, 4.75],  
+          [11.35, 4.75],  
+          [2.25, 8.55],  
+          [11.35, 8.55],  
+          [2.25, 12.35],  
+          [11.35, 12.35],  
+          [2.25, 16.15],  
+          [11.35, 16.15],  
+        ];  
+          
+        let x, y, width, height;  
+        if (i < positions.length) {  
+          x = positions[i][0] * dpi72;  
+          y = positions[i][1] * dpi72;  
+          width = 4.5 * dpi72;  
+          height = 1.5 * dpi72;  
+        } else {  
+          x = i % 2 === 0 ? canvasWidth - (8 * dpi72) : canvasWidth / 18.504;  
+          y = Math.floor((i - 1) / 2) * (2 * dpi72) + canvasHeight / 18.504;  
+          width = 4.5 * dpi72;  
+          height = 1.5 * dpi72;  
+        }  
   
       if (i < 10) {
         ctx.save();
-        ctx.translate(x + width / 2, y + height / 2); // Orgin point
+        ctx.translate(x + width / 2, y + height / 2);
         ctx.rotate(Math.PI);
         ctx.drawImage(loadedPNG, -width / 2, -height / 2, width, height);
         ctx.restore();
@@ -403,58 +236,162 @@ else if (document.querySelector("#format-btn").innerText === "Flutes") {
       }
     }
   
-      // Convert the canvas to a data URL
       const dataURL = canvas.toDataURL('image/png', 1);
-  
-      // Create a Blob from the data URL
       const blob = dataURLToBlob(dataURL);
-  
-      // Create a download link for the Blob
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
       link.download = 'flutes.png';
-  
-      // Simulate a click on the link to trigger the download
       link.click();
     }, 100);
   }
+
+  
+// JEWELRY
+function generateJewelryCanvas(numFilesLimit, fileName) {  
+  const files = document.getElementById('file-input').files;  
+  if (files.length > numFilesLimit) {  
+    alert(`Error: You can only select up to ${numFilesLimit} images.`);  
+    return;  
+  }  
+  generatePreview();  
+  setTimeout(() => {  
+    const canvas = document.createElement('canvas');  
+    const ctx = canvas.getContext('2d');  
+  
+    const canvasWidthInches = 24;  
+    const dpi72 = 72.01558002 * 5;  
+    const canvasWidth = canvasWidthInches * dpi72;  
+  
+    const numRows = Math.ceil(loadedPNGs.length / 2);  
+  
+    const paddingY = 100;  
+    const canvasHeight = numRows * (loadedPNGs[0].height + paddingY) + paddingY;  
+    canvas.width = canvasWidth;  
+    canvas.height = canvasHeight;  
+  
+    for (let i = 0; i < loadedPNGs.length; i++) {  
+      const loadedPNG = loadedPNGs[i];  
+      const col = i % 2;  
+      const row = Math.floor(i / 2);  
+      const x = col * (canvasWidth / 2);  
+      const y = row * (loadedPNG.height + paddingY) + paddingY;  
+      ctx.drawImage(loadedPNG, x, y, loadedPNG.width, loadedPNG.height);  
+    }  
+    const dataURL = canvas.toDataURL('image/png', 1);  
+    const blob = dataURLToBlob(dataURL);  
+  
+    // Create a download link for the Blob  
+    const link = document.createElement('a');  
+    link.href = URL.createObjectURL(blob);  
+    link.download = fileName;  
+    link.click();  
+  }, 100);  
+}  
+  
+// JEWELRY  
+function generateJewelryCanvas(numFilesLimit, fileName) {  
+  const files = document.getElementById('file-input').files;  
+  if (files.length > numFilesLimit) {  
+    alert(`Error: You can only select up to ${numFilesLimit} images.`);  
+    return;  
+  }  
+  generatePreview();  
+  setTimeout(() => {  
+    const canvas = document.createElement('canvas');  
+    const ctx = canvas.getContext('2d');  
+  
+    const canvasWidthInches = 24;  
+    const dpi72 = 72.01558002 * 5;  
+    const canvasWidth = canvasWidthInches * dpi72;  
+  
+    const numRows = Math.ceil(loadedPNGs.length / 2);  
+  
+    const paddingY = 100;  
+    const canvasHeight = numRows * (loadedPNGs[0].height + paddingY) + paddingY;  
+    canvas.width = canvasWidth;  
+    canvas.height = canvasHeight;  
+  
+    for (let i = 0; i < loadedPNGs.length; i++) {  
+      const loadedPNG = loadedPNGs[i];  
+      const col = i % 2;  
+      const row = Math.floor(i / 2);  
+      const x = col * (canvasWidth / 2);  
+      const y = row * (loadedPNG.height + paddingY) + paddingY;  
+      ctx.drawImage(loadedPNG, x, y, loadedPNG.width, loadedPNG.height);  
+    }  
+    const dataURL = canvas.toDataURL('image/png', 1);  
+    const blob = dataURLToBlob(dataURL);  
+  
+    // Create a download link for the Blob  
+    const link = document.createElement('a');  
+    link.href = URL.createObjectURL(blob);  
+    link.download = fileName;  
+    link.click();  
+  }, 100);  
+}  
+
+// RINGS  
+if (document.querySelector("#format-btn").innerText === "Rings") {  
+  generateJewelryCanvas(50, 'rings.png');  
+}  
+  
+// NCK01  
+else if (document.querySelector("#format-btn").innerText === "One Name Neckless") {  
+  generateJewelryCanvas(50, 'NCK01.png');  
+}  
+  
+// NCK02 
+else if (document.querySelector("#format-btn").innerText === "Two Name Neckless") {  
+  generateJewelryCanvas(35, 'NCK02.png');  
+}  
+  
+// NCK03  
+else if (document.querySelector("#format-btn").innerText === "Three Name Neckless") {  
+  generateJewelryCanvas(20, 'NCK03.png');  
+}  
+  
+// NCK04 
+else if (document.querySelector("#format-btn").innerText === "Four Name Neckless") {  
+  generateJewelryCanvas(20, 'NCK04.png');  
+}  
+
+
+
+  // add more here
+
 }
+
+
+
 
 // Function to generate and display the preview of the final image
 function generatePreview() {
-  // Create a canvas element to hold the combined PNGs
+
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  // Add the event listener for the Export button outside the DOMContentLoaded event
   const exportButton = document.getElementById('export-button');
   exportButton.addEventListener('click', handleExportButtonClick);
 
-  // Enable image smoothing and set the interpolation method to Lanczos
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = 'high';
 
-  // Set the width and height of the canvas
-  const canvasWidth = 800; // Adjust as needed for preview size
-  const canvasHeight = 1200; // Adjust as needed for preview size
+  const canvasWidth = 800;
+  const canvasHeight = 1200; 
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
 
-  // Calculate the scale factor for the preview
   const scaleFactor = Math.min(canvasWidth / 2400, canvasHeight / (loadedPNGs.length * 200));
 
-  // Loop through the loaded PNGs and draw them onto the canvas
   for (let i = 0; i < loadedPNGs.length; i++) {
     const loadedPNG = loadedPNGs[i];
 
-    // Calculate the position to draw the image on the canvas
     const col = i % 2;
     const row = Math.floor(i / 2);
-    const x = 20 + col * (400 + 20); // Adjust as needed for preview size
-    const y = 20 + row * (200 * scaleFactor + 20); // Adjust as needed for preview size
+    const x = 20 + col * (400 + 20);
+    const y = 20 + row * (200 * scaleFactor + 20);
 
-    // Draw the image on the canvas with the desired width and height
-    ctx.drawImage(loadedPNG, x, y, 400 * scaleFactor, 200 * scaleFactor); // Adjust as needed for preview size
+    ctx.drawImage(loadedPNG, x, y, 400 * scaleFactor, 200 * scaleFactor);
   }
 
   // Convert the canvas to a data URL
@@ -471,15 +408,14 @@ function generatePreview() {
 }
 
 // Function to convert data URL to Blob
-function dataURLToBlob(dataURL) {
-  const arr = dataURL.split(',');
-  const mime = arr[0].match(/:(.*?);/)[1];
-  const bstr = atob(arr[1]);
-  let n = bstr.length;
-  const u8arr = new Uint8Array(n);
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
-  }
-  return new Blob([u8arr], { type: mime });
-}
-
+function dataURLToBlob(dataURL) {  
+  const binaryString = atob(dataURL.split(',')[1]);  
+  const arrayBuffer = new ArrayBuffer(binaryString.length);  
+  const view = new Uint8Array(arrayBuffer);  
+  for (let i = 0; i < binaryString.length; i++) {  
+    view[i] = binaryString.charCodeAt(i);  
+  } 
+  const blob = new Blob([arrayBuffer], { type: 'image/png' });  
+  
+  return blob;  
+}  
