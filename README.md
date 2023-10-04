@@ -1,4 +1,4 @@
-# PrintLayoutLabV1.82
+# PrintLayoutLabV1.84
 
 This code is a Python script that creates a web application called "Print Layout Lab" using the Flask web framework. It imports various configurations, such as SKU prefixes and lists of valid SKUs for different product types. The main purpose of this application is to process and export images with personalized text based on the data from a CSV file. The script imports several libraries and configuration files to achieve this. Users can then export the images in a specified format.
 
